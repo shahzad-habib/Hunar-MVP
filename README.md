@@ -11,6 +11,7 @@ An interactive showcase hub and comprehensive UI/UX design system for **HUNAR** 
 This repository houses the complete design prototypes, UI component libraries, and frontend source code for the HUNAR ecosystem across Customer, Worker, and Admin interfaces.
 
 - **Central Showcase Hub (`index.html`)**: Instant catalog of all 64 responsive screens with live search, module filters, responsive device previews (Desktop, Tablet, Mobile), and color system guidelines.
+- **End-to-End Connected MVP (`hunar_workflow.js`)**: All 64 screens, authentication forms, the landing page, and the React worker flow are interconnected into a working application while preserving 100% pixel fidelity to the original Figma designs.
 - **Official Design System Tokens (`colors.md`)**: Color palette (Navy `#1A1A2E`, Teal `#0F766E`, Amber `#F59E0B`), typography hierarchy (Inter), and component styling rules.
 - **Interactive Worker Portal (`worker_portal/`)**: Vite + React + TypeScript single-page application for skilled workers with job tracking, earnings, and status management.
 
