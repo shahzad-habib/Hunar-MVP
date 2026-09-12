@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUNAR — Design System & Prototype Showcase Hub</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#1A1A2E',
+            navyDark: '#121220',
+            teal: {
+              DEFAULT: '#0F766E',
+              dark: '#115E59',
+              light: 'rgba(15, 118, 110, 0.1)'
+            },
+            hunarOrange: '#F59E0B',
+            hunarSuccess: '#16A34A',
+            hunarError: '#DC2626',
+            hunarGray: '#64748B',
+            hunarBg: '#F8FAFC',
+            hunarBorder: '#E2E8F0'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC;
+      color: #1A1A2E;
+    }
+    .screen-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .screen-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -6px rgba(26, 26, 46, 0.09), 0 4px 8px -2px rgba(26, 26, 46, 0.04);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased bg-[#F8FAFC]">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-white border-b border-[#E2E8F0] shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-[#0F766E] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+          <span class="material-symbols-outlined text-xl">handyman</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-xl tracking-tight text-[#1A1A2E]">HUNAR</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#0F766E]/10 text-[#0F766E] border border-[#0F766E]/20 uppercase tracking-wide">Prototype Showcase</span>
+          </div>
+          <p class="text-[11px] text-[#64748B]">Central Design Index & Component Registry</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <a href="./landing_page/code.html" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
+          <span class="material-symbols-outlined text-base text-[#0F766E]">home</span>
+          <span>Landing</span>
+        </a>
+        <a href="./marketplace_prototype/hunar_customer_dashboard/code.html" class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
+          <span class="material-symbols-outlined text-base text-[#0F766E]">person</span>
+          <span>Customer Hub</span>
+        </a>
+        <a href="./worker_portal/dist/index.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#0F766E] text-white text-xs font-semibold hover:bg-[#115E59] transition shadow-sm">
+          <span class="material-symbols-outlined text-base">engineering</span>
+          <span>Worker Portal (React)</span>
+        </a>
+        <a href="./admin_operations_suite/analytics/code.html" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
+          <span class="material-symbols-outlined text-base text-[#0F766E]">admin_panel_settings</span>
+          <span>Admin</span>
+        </a>
+        <button onclick="toggleColorDrawer()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
+          <span class="material-symbols-outlined text-base text-[#F59E0B]">palette</span>
+          <span>Colors</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-white to-[#F8FAFC] border-b border-[#E2E8F0] py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-[#1A1A2E] tracking-tight">
+            Design Screens & Working Prototypes
+          </h1>
+          <p class="mt-1.5 text-sm text-[#64748B] max-w-2xl">
+            Complete inventory of 64 verified independent pages and modules across the HUNAR marketplace ecosystem. Click any card to launch full-screen or preview interactively in responsive device frames.
+          </p>
+        </div>
+
+        <!-- Metric Badges -->
+        <div class="flex items-center gap-3">
+          <div class="bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 shadow-sm text-center">
+            <span class="block text-xl font-extrabold text-[#0F766E]" id="statTotal">64</span>
+            <span class="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider">Total Screens</span>
+          </div>
+          <div class="bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 shadow-sm text-center">
+            <span class="block text-xl font-extrabold text-[#1A1A2E]">9</span>
+            <span class="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider">Core Modules</span>
+          </div>
+          <div class="bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 shadow-sm text-center">
+            <span class="block text-xl font-extrabold text-[#16A34A]">100%</span>
+            <span class="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider">Verified Paths</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls: Search & Filters -->
+      <div class="mt-7 flex flex-col sm:flex-row gap-3">
+        <!-- Live Search -->
+        <div class="relative flex-1">
+          <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B] text-xl">search</span>
+          <input 
+            type="text" 
+            id="searchInput"
+            oninput="renderCards()"
+            placeholder="Search screens by title, feature, heading, or file name..."
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#E2E8F0] bg-white text-sm text-[#1A1A2E] placeholder-[#64748B] focus:outline-none focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 shadow-sm transition"
+          >
+          <button 
+            id="clearSearch" 
+            onclick="clearSearchInput()" 
+            class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+
+        <!-- Viewport Switcher -->
+        <div class="inline-flex bg-white border border-[#E2E8F0] rounded-xl p-1 shadow-sm">
+          <button onclick="setViewportFilter('All')" id="vpAll" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#0F766E] text-white transition">All Devices</button>
+          <button onclick="setViewportFilter('Desktop')" id="vpDesktop" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#64748B] hover:text-[#1A1A2E] transition">🖥️ Desktop</button>
+          <button onclick="setViewportFilter('Mobile')" id="vpMobile" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#64748B] hover:text-[#1A1A2E] transition">📱 Mobile</button>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="mt-4 flex items-center gap-1.5 overflow-x-auto pb-2 custom-scrollbar text-xs" id="categoryPills">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Showcase Grid -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+    <!-- Results Header -->
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-2">
+        <h2 class="text-sm font-bold text-[#1A1A2E] uppercase tracking-wider" id="filterStatus">All Screens</h2>
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#E2E8F0] text-[#1A1A2E]" id="resultsCount">64</span>
+      </div>
+      <span class="text-xs text-[#64748B]">Click card to open in new tab or use Preview</span>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="screensGrid">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-[#E2E8F0] p-8">
+      <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-[#64748B] mb-3">
+        <span class="material-symbols-outlined text-2xl">search_off</span>
+      </div>
+      <h3 class="text-base font-bold text-[#1A1A2E]">No screens match your search</h3>
+      <p class="text-xs text-[#64748B] mt-1 max-w-sm mx-auto">Try checking for spelling errors or clear the active category and viewport filters.</p>
+      <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-[#0F766E] text-white text-xs font-semibold rounded-lg hover:bg-[#115E59] transition">Reset All Filters</button>
+    </div>
+  </main>
+
+  <!-- Responsive In-Page Modal Preview -->
+  <div id="previewModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center p-2 sm:p-4">
+    <div class="bg-white rounded-2xl shadow-2xl flex flex-col w-full max-w-6xl h-[92vh] overflow-hidden border border-[#E2E8F0]">
+      <!-- Modal Header -->
+      <div class="px-5 py-3.5 border-b border-[#E2E8F0] bg-slate-50 flex items-center justify-between gap-4">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#16A34A]"></span>
+            <h3 id="modalTitle" class="text-sm font-bold text-[#1A1A2E] truncate">Screen Preview</h3>
+            <span id="modalBadge" class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-700">Desktop</span>
+          </div>
+          <p id="modalPath" class="text-[11px] text-[#64748B] truncate font-mono mt-0.5">path/to/page.html</p>
+        </div>
+
+        <!-- Responsive Device Switcher Controls -->
+        <div class="flex items-center gap-2">
+          <div class="inline-flex bg-white border border-[#E2E8F0] rounded-lg p-0.5 shadow-sm">
+            <button onclick="setPreviewWidth('100%')" id="pwFull" title="Desktop Full Width" class="p-1.5 rounded hover:bg-slate-100 text-[#0F766E]">
+              <span class="material-symbols-outlined text-lg">desktop_windows</span>
+            </button>
+            <button onclick="setPreviewWidth('768px')" id="pwTablet" title="Tablet View (768px)" class="p-1.5 rounded hover:bg-slate-100 text-[#64748B]">
+              <span class="material-symbols-outlined text-lg">tablet</span>
+            </button>
+            <button onclick="setPreviewWidth('390px')" id="pwMobile" title="Mobile View (390px)" class="p-1.5 rounded hover:bg-slate-100 text-[#64748B]">
+              <span class="material-symbols-outlined text-lg">smartphone</span>
+            </button>
+          </div>
+
+          <a id="modalExternalLink" href="#" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#0F766E] text-white text-xs font-semibold rounded-lg hover:bg-[#115E59] transition shadow-sm">
+            <span>Open Tab</span>
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+
+          <button onclick="closePreviewModal()" class="p-1.5 rounded-lg hover:bg-slate-200 text-[#64748B] transition">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Iframe Container -->
+      <div class="flex-1 bg-slate-100 flex items-center justify-center overflow-hidden p-2">
+        <div id="iframeWrapper" class="h-full w-full transition-all duration-300 shadow-sm bg-white rounded-lg overflow-hidden border border-[#E2E8F0]">
+          <iframe id="previewIframe" src="" class="w-full h-full border-0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color System & Guidelines Drawer -->
+  <div id="colorDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-white shadow-2xl border-l border-[#E2E8F0] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <div class="p-5 border-b border-[#E2E8F0] bg-slate-50 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-md bg-[#0F766E] text-white flex items-center justify-center">
+          <span class="material-symbols-outlined text-sm">palette</span>
+        </div>
+        <h3 class="font-bold text-sm text-[#1A1A2E]">HUNAR Color System & Rules</h3>
+      </div>
+      <button onclick="toggleColorDrawer()" class="text-[#64748B] hover:text-[#1A1A2E]">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+    
+    <div class="p-5 overflow-y-auto flex-1 space-y-6 text-xs text-[#1A1A2E]">
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-wider text-[#64748B] mb-3">Official Palette (colors.md)</h4>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#1A1A2E] border border-black/10"></span>
+              <span class="font-semibold">Navy (Brand, Headings, Text)</span>
+            </div>
+            <code class="font-mono text-[11px]">#1A1A2E</code>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#0F766E] border border-black/10"></span>
+              <span class="font-semibold">Teal (Primary, Actions, Trust)</span>
+            </div>
+            <code class="font-mono text-[11px]">#0F766E</code>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#115E59] border border-black/10"></span>
+              <span class="font-semibold">Teal Dark (Hover/Active)</span>
+            </div>
+            <code class="font-mono text-[11px]">#115E59</code>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#F59E0B] border border-black/10"></span>
+              <span class="font-semibold">Orange (Attention, Pending, Quotes)</span>
+            </div>
+            <code class="font-mono text-[11px]">#F59E0B</code>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#16A34A] border border-black/10"></span>
+              <span class="font-semibold">Success (Completed, Verified)</span>
+            </div>
+            <code class="font-mono text-[11px]">#16A34A</code>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#DC2626] border border-black/10"></span>
+              <span class="font-semibold">Error (Rejected, Cancelled)</span>
+            </div>
+            <code class="font-mono text-[11px]">#DC2626</code>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#F8FAFC] border border-slate-300"></span>
+              <span class="font-semibold">Background (Main viewport)</span>
+            </div>
+            <code class="font-mono text-[11px]">#F8FAFC</code>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <span class="w-5 h-5 rounded bg-[#FFFFFF] border border-slate-300"></span>
+              <span class="font-semibold">White (Cards, Surfaces, Modals)</span>
+            </div>
+            <code class="font-mono text-[11px]">#FFFFFF</code>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-wider text-[#64748B] mb-2">Button Standard</h4>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-2">
+          <button class="w-full py-2 bg-[#0F766E] text-white font-semibold rounded-lg hover:bg-[#115E59] transition">Primary Button (#0F766E)</button>
+          <button class="w-full py-2 bg-white text-[#0F766E] border border-[#0F766E] font-semibold rounded-lg hover:bg-slate-50 transition">Secondary Button</button>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-wider text-[#64748B] mb-2">Typography Guide</h4>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1">
+          <p><span class="font-bold">Font:</span> Inter (Google Fonts)</p>
+          <p><span class="font-bold">Headings:</span> 700 / 800 weight in #1A1A2E</p>
+          <p><span class="font-bold">Body text:</span> #1A1A2E</p>
+          <p><span class="font-bold">Secondary text:</span> #64748B</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-[#E2E8F0] py-6 px-4 sm:px-6 lg:px-8 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#64748B]">
+      <div class="flex items-center gap-2">
+        <span class="font-extrabold text-[#1A1A2E]">HUNAR</span>
+        <span>•</span>
+        <span>Product Design System & Prototype Showcase</span>
+      </div>
+      <div>
+        <span>All 64 HTML screens and relative assets preserved and verified.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Logic Script -->
+  <script>
+    const ALL_PAGES = [
+  {
+    "path": "landing_page/code.html",
+    "module_key": "landing_page",
+    "module_name": "Landing Page",
+    "sub_name": "code.html",
+    "title": "HUNAR - Trusted Skilled Services &amp; Freelance Marketplace",
+    "h1": "Find the perfect skilled services for your home &amp; business",
+    "viewport": "Desktop",
+    "thumbnail": "landing_page/screen.png",
+    "size": 68604
+  },
+  {
+    "path": "worker_portal/index.html",
+    "module_key": "worker_portal",
+    "module_name": "Worker Portal (React)",
+    "sub_name": "index.html",
+    "title": "HUNAR - Worker Portal",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 370
+  },
+  {
+    "path": "worker_portal/dist/index.html",
+    "module_key": "worker_portal",
+    "module_name": "Worker Portal (React)",
+    "sub_name": "dist",
+    "title": "HUNAR - Worker Portal",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 473
+  },
+  {
+    "path": "marketplace_prototype/customer_profile_settings_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "customer_profile_settings_hunar",
+    "title": "Account Profile &amp; Settings - Customer Profile Settings Hunar",
+    "h1": "Account Profile &amp; Settings",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/customer_profile_settings_hunar/screen.png",
+    "size": 46470
+  },
+  {
+    "path": "marketplace_prototype/direct_chat_negotiation_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "direct_chat_negotiation_hunar",
+    "title": "Direct Chat &amp; Negotiation | HUNAR",
+    "h1": "Rashid Ali",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/direct_chat_negotiation_hunar/screen.png",
+    "size": 38672
+  },
+  {
+    "path": "marketplace_prototype/dispute_resolution_help_center_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "dispute_resolution_help_center_hunar",
+    "title": "Dispute Resolution &amp; Customer Support - HUNAR",
+    "h1": "Dispute Resolution &amp; Customer Support",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/dispute_resolution_help_center_hunar/screen.png",
+    "size": 36539
+  },
+  {
+    "path": "marketplace_prototype/hunar_customer_dashboard/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "hunar_customer_dashboard",
+    "title": "Good morning, Ahmed Khan - Hunar Customer Dashboard",
+    "h1": "Good morning, Ahmed Khan",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/hunar_customer_dashboard/screen.png",
+    "size": 35855
+  },
+  {
+    "path": "marketplace_prototype/hunar_worker_dashboard/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "hunar_worker_dashboard",
+    "title": "Good morning, Usman Ali - Hunar Worker Dashboard",
+    "h1": "Good morning, Usman Ali",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/hunar_worker_dashboard/screen.png",
+    "size": 53351
+  },
+  {
+    "path": "marketplace_prototype/job_details_offers_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "job_details_offers_hunar",
+    "title": "HUNAR - Job Details Offers Hunar",
+    "h1": "HUNAR",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/job_details_offers_hunar/screen.png",
+    "size": 24265
+  },
+  {
+    "path": "marketplace_prototype/job_details_select_worker_confirm_booking_modal_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "job_details_select_worker_confirm_booking_modal_hunar",
+    "title": "HUNAR - Job Details Select Worker Confirm Booking Modal Hunar",
+    "h1": "HUNAR",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/job_details_select_worker_confirm_booking_modal_hunar/screen.png",
+    "size": 37276
+  },
+  {
+    "path": "marketplace_prototype/job_details_worker_profile_selection_modal_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "job_details_worker_profile_selection_modal_hunar",
+    "title": "HUNAR - Job Details Worker Profile Selection Modal Hunar",
+    "h1": "HUNAR",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/job_details_worker_profile_selection_modal_hunar/screen.png",
+    "size": 43846
+  },
+  {
+    "path": "marketplace_prototype/post_a_job_step_2_3_details_media/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "post_a_job_step_2_3_details_media",
+    "title": "HUNAR - Post a Job - Details &amp; Media",
+    "h1": "Describe the job",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/post_a_job_step_2_3_details_media/screen.png",
+    "size": 20206
+  },
+  {
+    "path": "marketplace_prototype/post_a_job_step_4_5_location_schedule/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "post_a_job_step_4_5_location_schedule",
+    "title": "HUNAR - Post a Job - Step 4 &amp; 5",
+    "h1": "Where and When?",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/post_a_job_step_4_5_location_schedule/screen.png",
+    "size": 23536
+  },
+  {
+    "path": "marketplace_prototype/post_a_job_step_6_review_post/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "post_a_job_step_6_review_post",
+    "title": "HUNAR - Review &amp; Post Job",
+    "h1": "Review &amp; Post Job",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/post_a_job_step_6_review_post/screen.png",
+    "size": 20216
+  },
+  {
+    "path": "marketplace_prototype/direct_chat_negotiation_hunar_customer_hub/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "direct_chat_negotiation_hunar_customer_hub",
+    "title": "HUNAR Customer Hub - Direct Chat &amp; Negotiation",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/direct_chat_negotiation_hunar_customer_hub/screen.png",
+    "size": 42133
+  },
+  {
+    "path": "marketplace_prototype/payments_escrow_wallet_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "payments_escrow_wallet_hunar",
+    "title": "HUNAR Customer Hub - Payments & Escrow",
+    "h1": "Payments &amp; Escrow Balance",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/payments_escrow_wallet_hunar/screen.png",
+    "size": 44287
+  },
+  {
+    "path": "marketplace_prototype/hunar_admin_operations_dashboard_modern/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "hunar_admin_operations_dashboard_modern",
+    "title": "HUNAR PK - Admin Operations Dashboard",
+    "h1": "Admin Operations Dashboard",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/hunar_admin_operations_dashboard_modern/screen.png",
+    "size": 54653
+  },
+  {
+    "path": "marketplace_prototype/job_completion_escrow_release_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "job_completion_escrow_release_hunar",
+    "title": "Job Complete: Confirm Work &amp; Release Payment - Job Completion Escrow Release Hunar",
+    "h1": "Job Complete: Confirm Work &amp; Release Payment",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/job_completion_escrow_release_hunar/screen.png",
+    "size": 32708
+  },
+  {
+    "path": "marketplace_prototype/jobs_management_work_orders_hunar_admin/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "jobs_management_work_orders_hunar_admin",
+    "title": "Jobs &amp; Work Orders - Jobs Management Work Orders Hunar Admin",
+    "h1": "Jobs &amp; Work Orders",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/jobs_management_work_orders_hunar_admin/screen.png",
+    "size": 61047
+  },
+  {
+    "path": "marketplace_prototype/my_jobs_hunar_customer_hub/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "my_jobs_hunar_customer_hub",
+    "title": "My Jobs | HUNAR Customer Hub",
+    "h1": "My Posted Jobs &amp; Work Orders",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/my_jobs_hunar_customer_hub/screen.png",
+    "size": 25715
+  },
+  {
+    "path": "marketplace_prototype/post_a_job_step_1_modern_service_selection/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "post_a_job_step_1_modern_service_selection",
+    "title": "Post a Job - HUNAR",
+    "h1": "What service do you need today?",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/post_a_job_step_1_modern_service_selection/screen.png",
+    "size": 27989
+  },
+  {
+    "path": "marketplace_prototype/offers_inquiries_hunar_customer_hub/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "offers_inquiries_hunar_customer_hub",
+    "title": "Pro Offers &amp; Quotes - Offers Inquiries Hunar Customer Hub",
+    "h1": "Pro Offers &amp; Quotes",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/offers_inquiries_hunar_customer_hub/screen.png",
+    "size": 42146
+  },
+  {
+    "path": "marketplace_prototype/scheduled_visits_arrival_tracker_hunar/code.html",
+    "module_key": "marketplace_prototype",
+    "module_name": "Marketplace Prototype",
+    "sub_name": "scheduled_visits_arrival_tracker_hunar",
+    "title": "Scheduled Visits &amp; Arrival Tracker - Scheduled Visits Arrival Tracker Hunar",
+    "h1": "Scheduled Visits &amp; Arrival Tracker",
+    "viewport": "Desktop",
+    "thumbnail": "marketplace_prototype/scheduled_visits_arrival_tracker_hunar/screen.png",
+    "size": 40846
+  },
+  {
+    "path": "financial_portal/payments_gateways_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "payments_gateways_desktop",
+    "title": "Customer Payments &amp; Gateway Inflow - HUNAR Console",
+    "h1": "Customer Payments &amp; Gateway Inflow",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/payments_gateways_desktop/screen.png",
+    "size": 41456
+  },
+  {
+    "path": "financial_portal/commission_analytics_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "commission_analytics_desktop",
+    "title": "HUNAR Console - Platform Commission &amp; Protocol Analytics",
+    "h1": "Platform Commission &amp; Protocol Analytics",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/commission_analytics_desktop/screen.png",
+    "size": 43140
+  },
+  {
+    "path": "financial_portal/refunds_dispute_management_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "refunds_dispute_management_desktop",
+    "title": "HUNAR Console - Refunds &amp; Dispute Arbitration",
+    "h1": "Refunds &amp; Dispute Arbitration",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/refunds_dispute_management_desktop/screen.png",
+    "size": 40155
+  },
+  {
+    "path": "financial_portal/taxes_compliance_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "taxes_compliance_desktop",
+    "title": "HUNAR Console - Tax Compliance &amp; Withholding Ledger",
+    "h1": "Tax Compliance &amp; Withholding Ledger",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/taxes_compliance_desktop/screen.png",
+    "size": 39117
+  },
+  {
+    "path": "financial_portal/payment_taxes_overview_modern_friendly_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "payment_taxes_overview_modern_friendly_desktop",
+    "title": "HUNAR Console - Treasury &amp; Revenue Analytics",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/payment_taxes_overview_modern_friendly_desktop/screen.png",
+    "size": 8517
+  },
+  {
+    "path": "financial_portal/payment_taxes_overview/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "payment_taxes_overview",
+    "title": "Payment &amp; Taxes - Payment Taxes Overview",
+    "h1": "Payment &amp; Taxes",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/payment_taxes_overview/screen.png",
+    "size": 38190
+  },
+  {
+    "path": "financial_portal/transaction_detail_payment_breakdown/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "transaction_detail_payment_breakdown",
+    "title": "Transaction Detail Payment Breakdown",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/transaction_detail_payment_breakdown/screen.png",
+    "size": 8523
+  },
+  {
+    "path": "financial_portal/transaction_detail_payment_breakdown_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "transaction_detail_payment_breakdown_desktop",
+    "title": "Transaction Details \u2014 TXN-10021 - Transaction Detail Payment Breakdown Desktop",
+    "h1": "Transaction Details \u2014 TXN-10021",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/transaction_detail_payment_breakdown_desktop/screen.png",
+    "size": 41636
+  },
+  {
+    "path": "financial_portal/transactions_ledger/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "transactions_ledger",
+    "title": "Transactions - Transactions Ledger",
+    "h1": "Transactions",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/transactions_ledger/screen.png",
+    "size": 48630
+  },
+  {
+    "path": "financial_portal/transactions_ledger_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "transactions_ledger_desktop",
+    "title": "Transactions - Transactions Ledger Desktop",
+    "h1": "Transactions",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/transactions_ledger_desktop/screen.png",
+    "size": 56148
+  },
+  {
+    "path": "financial_portal/worker_payouts_wallets/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "worker_payouts_wallets",
+    "title": "Worker Payouts &amp; Wallets - Worker Payouts Wallets",
+    "h1": "Worker Payouts &amp; Wallets",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/worker_payouts_wallets/screen.png",
+    "size": 37306
+  },
+  {
+    "path": "financial_portal/worker_payouts_wallets_desktop/code.html",
+    "module_key": "financial_portal",
+    "module_name": "Financial Administration Portal",
+    "sub_name": "worker_payouts_wallets_desktop",
+    "title": "Worker Payouts Wallets Desktop",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "financial_portal/worker_payouts_wallets_desktop/screen.png",
+    "size": 8429
+  },
+  {
+    "path": "admin_operations_suite/analytics/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "analytics",
+    "title": "Analytics",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "admin_operations_suite/analytics/screen.png",
+    "size": 55484
+  },
+  {
+    "path": "admin_operations_suite/notifications/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "notifications",
+    "title": "Notifications",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "admin_operations_suite/notifications/screen.png",
+    "size": 49675
+  },
+  {
+    "path": "admin_operations_suite/reports_moderation/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "reports_moderation",
+    "title": "Reports Moderation",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "admin_operations_suite/reports_moderation/screen.png",
+    "size": 59688
+  },
+  {
+    "path": "admin_operations_suite/settings/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "settings",
+    "title": "Settings",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "admin_operations_suite/settings/screen.png",
+    "size": 8505
+  },
+  {
+    "path": "admin_operations_suite/analytics_mobile/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "analytics_mobile",
+    "title": "Analytics - Analytics Mobile",
+    "h1": "Analytics",
+    "viewport": "Mobile",
+    "thumbnail": "admin_operations_suite/analytics_mobile/screen.png",
+    "size": 40399
+  },
+  {
+    "path": "admin_operations_suite/notifications_mobile/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "notifications_mobile",
+    "title": "Notifications - Notifications Mobile",
+    "h1": "Notifications",
+    "viewport": "Mobile",
+    "thumbnail": "admin_operations_suite/notifications_mobile/screen.png",
+    "size": 40901
+  },
+  {
+    "path": "admin_operations_suite/reports_moderation_mobile/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "reports_moderation_mobile",
+    "title": "Reports - Reports Moderation Mobile",
+    "h1": "Reports",
+    "viewport": "Mobile",
+    "thumbnail": "admin_operations_suite/reports_moderation_mobile/screen.png",
+    "size": 36813
+  },
+  {
+    "path": "admin_operations_suite/settings_mobile/code.html",
+    "module_key": "admin_operations_suite",
+    "module_name": "Admin Operations Suite",
+    "sub_name": "settings_mobile",
+    "title": "Settings - Settings Mobile",
+    "h1": "Settings",
+    "viewport": "Mobile",
+    "thumbnail": "admin_operations_suite/settings_mobile/screen.png",
+    "size": 44006
+  },
+  {
+    "path": "users_management/user_details_ahmed_khan_desktop_hunar_admin/code.html",
+    "module_key": "users_management",
+    "module_name": "Users Management Dashboard",
+    "sub_name": "user_details_ahmed_khan_desktop_hunar_admin",
+    "title": "Ahmed Khan - User Details Ahmed Khan Desktop Hunar Admin",
+    "h1": "Ahmed Khan",
+    "viewport": "Desktop",
+    "thumbnail": "users_management/user_details_ahmed_khan_desktop_hunar_admin/screen.png",
+    "size": 52189
+  },
+  {
+    "path": "users_management/user_details_ahmed_khan_hunar_admin/code.html",
+    "module_key": "users_management",
+    "module_name": "Users Management Dashboard",
+    "sub_name": "user_details_ahmed_khan_hunar_admin",
+    "title": "User Detail - User Details Ahmed Khan Hunar Admin",
+    "h1": "User Detail",
+    "viewport": "Desktop",
+    "thumbnail": "users_management/user_details_ahmed_khan_hunar_admin/screen.png",
+    "size": 36403
+  },
+  {
+    "path": "users_management/users_management_desktop_hunar_admin/code.html",
+    "module_key": "users_management",
+    "module_name": "Users Management Dashboard",
+    "sub_name": "users_management_desktop_hunar_admin",
+    "title": "Users - Users Management Desktop Hunar Admin",
+    "h1": "Users",
+    "viewport": "Desktop",
+    "thumbnail": "users_management/users_management_desktop_hunar_admin/screen.png",
+    "size": 52703
+  },
+  {
+    "path": "users_management/users_management_hunar_admin/code.html",
+    "module_key": "users_management",
+    "module_name": "Users Management Dashboard",
+    "sub_name": "users_management_hunar_admin",
+    "title": "Users - Users Management Hunar Admin",
+    "h1": "Users",
+    "viewport": "Desktop",
+    "thumbnail": "users_management/users_management_hunar_admin/screen.png",
+    "size": 39005
+  },
+  {
+    "path": "worker_registration/hunar_worker_registration_6_step_wizard_with_profile_photo_step/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_worker_registration_6_step_wizard_with_profile_photo_step",
+    "title": "HUNAR - Worker Register / Become a Pro",
+    "h1": "",
+    "viewport": "Desktop",
+    "thumbnail": "worker_registration/hunar_worker_registration_6_step_wizard_with_profile_photo_step/screen.png",
+    "size": 85928
+  },
+  {
+    "path": "worker_registration/hunar_customer_register_otp_verification_desktop_split_layout/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_customer_register_otp_verification_desktop_split_layout",
+    "title": "Hunar Customer Register Otp Verification Desktop Split Layout",
+    "h1": "Find verified skilled tradespeople with escrow guarantee.",
+    "viewport": "Desktop",
+    "thumbnail": "worker_registration/hunar_customer_register_otp_verification_desktop_split_layout/screen.png",
+    "size": 19690
+  },
+  {
+    "path": "worker_registration/hunar_customer_register_split_layout_with_exact_form/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_customer_register_split_layout_with_exact_form",
+    "title": "Hunar Customer Register Split Layout With Exact Form",
+    "h1": "Find verified skilled tradespeople with escrow guarantee.",
+    "viewport": "Desktop",
+    "thumbnail": "worker_registration/hunar_customer_register_split_layout_with_exact_form/screen.png",
+    "size": 29401
+  },
+  {
+    "path": "worker_registration/hunar_customer_sign_in_desktop_split_layout/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_customer_sign_in_desktop_split_layout",
+    "title": "Hunar Customer Sign In Desktop Split Layout",
+    "h1": "Find verified skilled tradespeople with escrow guarantee.",
+    "viewport": "Desktop",
+    "thumbnail": "worker_registration/hunar_customer_sign_in_desktop_split_layout/screen.png",
+    "size": 22780
+  },
+  {
+    "path": "worker_registration/hunar_customer_register_mobile_app_rounded_inputs/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_customer_register_mobile_app_rounded_inputs",
+    "title": "Create Account - Hunar Customer Register Mobile App Rounded Inputs",
+    "h1": "Create Account",
+    "viewport": "Mobile",
+    "thumbnail": "worker_registration/hunar_customer_register_mobile_app_rounded_inputs/screen.png",
+    "size": 23813
+  },
+  {
+    "path": "worker_registration/hunar_customer_register_otp_verification_clean_mobile_app/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_customer_register_otp_verification_clean_mobile_app",
+    "title": "HUNAR - Verify Phone Number",
+    "h1": "Verify Phone Number",
+    "viewport": "Mobile",
+    "thumbnail": "worker_registration/hunar_customer_register_otp_verification_clean_mobile_app/screen.png",
+    "size": 19375
+  },
+  {
+    "path": "worker_registration/hunar_worker_register_mobile_responsive/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_worker_register_mobile_responsive",
+    "title": "HUNAR - Worker / Pro Registration",
+    "h1": "Create your Pro account",
+    "viewport": "Mobile",
+    "thumbnail": "worker_registration/hunar_worker_register_mobile_responsive/screen.png",
+    "size": 39552
+  },
+  {
+    "path": "worker_registration/hunar_customer_sign_in_mobile_app_rounded_inputs/code.html",
+    "module_key": "worker_registration",
+    "module_name": "Worker Registration & Onboarding",
+    "sub_name": "hunar_customer_sign_in_mobile_app_rounded_inputs",
+    "title": "Welcome Back! - Hunar Customer Sign In Mobile App Rounded Inputs",
+    "h1": "Welcome Back!",
+    "viewport": "Mobile",
+    "thumbnail": "worker_registration/hunar_customer_sign_in_mobile_app_rounded_inputs/screen.png",
+    "size": 17308
+  },
+  {
+    "path": "worker_verification/worker_verification_detail_ahmed_khan_teal_theme/code.html",
+    "module_key": "worker_verification",
+    "module_name": "Worker Verification Module",
+    "sub_name": "worker_verification_detail_ahmed_khan_teal_theme",
+    "title": "Ahmed Khan - Worker Verification Detail Ahmed Khan Teal Theme",
+    "h1": "Ahmed Khan",
+    "viewport": "Desktop",
+    "thumbnail": "worker_verification/worker_verification_detail_ahmed_khan_teal_theme/screen.png",
+    "size": 74473
+  },
+  {
+    "path": "worker_verification/verification_overview_requests_teal_theme/code.html",
+    "module_key": "worker_verification",
+    "module_name": "Worker Verification Module",
+    "sub_name": "verification_overview_requests_teal_theme",
+    "title": "Verification Center - Verification Overview Requests Teal Theme",
+    "h1": "Verification Center",
+    "viewport": "Desktop",
+    "thumbnail": "worker_verification/verification_overview_requests_teal_theme/screen.png",
+    "size": 69163
+  },
+  {
+    "path": "admin_panel/customers.html",
+    "module_key": "admin_panel",
+    "module_name": "Admin Panel (Classic)",
+    "sub_name": "customers.html",
+    "title": "HUNAR Admin Panel \u2014 Customers",
+    "h1": "Customers",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 38499
+  },
+  {
+    "path": "admin_panel/dashboard.html",
+    "module_key": "admin_panel",
+    "module_name": "Admin Panel (Classic)",
+    "sub_name": "dashboard.html",
+    "title": "HUNAR Admin Panel \u2014 Dashboard",
+    "h1": "Dashboard",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 24038
+  },
+  {
+    "path": "admin_panel/notifications.html",
+    "module_key": "admin_panel",
+    "module_name": "Admin Panel (Classic)",
+    "sub_name": "notifications.html",
+    "title": "HUNAR Admin Panel \u2014 Notifications",
+    "h1": "Notifications",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 30863
+  },
+  {
+    "path": "admin_panel/payments.html",
+    "module_key": "admin_panel",
+    "module_name": "Admin Panel (Classic)",
+    "sub_name": "payments.html",
+    "title": "HUNAR Admin Panel \u2014 Payments",
+    "h1": "Payments",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 67862
+  },
+  {
+    "path": "admin_panel/reports.html",
+    "module_key": "admin_panel",
+    "module_name": "Admin Panel (Classic)",
+    "sub_name": "reports.html",
+    "title": "HUNAR Admin Panel \u2014 Reports",
+    "h1": "Reports",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 39934
+  },
+  {
+    "path": "admin_panel/settings.html",
+    "module_key": "admin_panel",
+    "module_name": "Admin Panel (Classic)",
+    "sub_name": "settings.html",
+    "title": "HUNAR Admin Panel \u2014 Settings",
+    "h1": "Settings",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 54473
+  },
+  {
+    "path": "admin_panel/index.html",
+    "module_key": "admin_panel",
+    "module_name": "Admin Panel (Classic)",
+    "sub_name": "index.html",
+    "title": "HUNAR Admin Panel \u2014 Workers Management",
+    "h1": "Workers",
+    "viewport": "Desktop",
+    "thumbnail": null,
+    "size": 31382
+  }
+];
+
+    let activeCategory = 'All';
+    let activeViewport = 'All';
+
+    // Module categories map
+    const CATEGORIES = [
+      { id: 'All', label: 'All Screens (64)' },
+      { id: 'landing_page', label: '🌟 Landing Page' },
+      { id: 'worker_portal', label: '🛠️ Worker Portal (React)' },
+      { id: 'marketplace_prototype', label: '🛒 Marketplace Prototype' },
+      { id: 'financial_portal', label: '💰 Financial Administration' },
+      { id: 'admin_operations_suite', label: '📊 Admin Operations' },
+      { id: 'users_management', label: '👥 Users Management' },
+      { id: 'worker_registration', label: '📝 Registration Wizard' },
+      { id: 'worker_verification', label: '🛡️ Verification Module' },
+      { id: 'admin_panel', label: '⚙️ Classic Admin Panel' }
+    ];
+
+    function init() {
+      renderCategoryPills();
+      renderCards();
+    }
+
+    function renderCategoryPills() {
+      const container = document.getElementById('categoryPills');
+      container.innerHTML = CATEGORIES.map(cat => {
+        const isActive = activeCategory === cat.id;
+        const count = cat.id === 'All' ? ALL_PAGES.length : ALL_PAGES.filter(p => p.module_key === cat.id).length;
+        const bgClass = isActive ? 'bg-[#0F766E] text-white' : 'bg-white text-[#64748B] hover:text-[#1A1A2E] hover:bg-slate-50 border border-[#E2E8F0]';
+        return `
+          <button 
+            onclick="setCategoryFilter('${cat.id}')"
+            class="px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition shadow-sm ${bgClass}">
+            ${cat.label} <span class="opacity-75 text-[10px] ml-1">(${count})</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setCategoryFilter(catId) {
+      activeCategory = catId;
+      renderCategoryPills();
+      renderCards();
+    }
+
+    function setViewportFilter(vp) {
+      activeViewport = vp;
+      document.getElementById('vpAll').className = vp === 'All' ? 'px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#0F766E] text-white transition' : 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#64748B] hover:text-[#1A1A2E] transition';
+      document.getElementById('vpDesktop').className = vp === 'Desktop' ? 'px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#0F766E] text-white transition' : 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#64748B] hover:text-[#1A1A2E] transition';
+      document.getElementById('vpMobile').className = vp === 'Mobile' ? 'px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#0F766E] text-white transition' : 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#64748B] hover:text-[#1A1A2E] transition';
+      renderCards();
+    }
+
+    function clearSearchInput() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearSearch').classList.add('hidden');
+      renderCards();
+    }
+
+    function resetFilters() {
+      activeCategory = 'All';
+      activeViewport = 'All';
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearSearch').classList.add('hidden');
+      setViewportFilter('All');
+      renderCategoryPills();
+      renderCards();
+    }
+
+    function renderCards() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearch');
+      if (query) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      const filtered = ALL_PAGES.filter(item => {
+        // Category check
+        if (activeCategory !== 'All' && item.module_key !== activeCategory) return false;
+        // Viewport check
+        if (activeViewport !== 'All' && item.viewport !== activeViewport) return false;
+        // Search query
+        if (query) {
+          const haystack = `${item.title} ${item.h1} ${item.module_name} ${item.path} ${item.sub_name}`.toLowerCase();
+          if (!haystack.includes(query)) return false;
+        }
+        return true;
+      });
+
+      // Update counter
+      document.getElementById('resultsCount').innerText = filtered.length;
+      document.getElementById('filterStatus').innerText = activeCategory === 'All' ? 'All Screens' : CATEGORIES.find(c => c.id === activeCategory)?.label || 'Filtered';
+
+      const grid = document.getElementById('screensGrid');
+      const empty = document.getElementById('emptyState');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(item => {
+        const isMobile = item.viewport === 'Mobile';
+        const vpBadge = isMobile 
+          ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">📱 Mobile</span>'
+          : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">🖥️ Desktop</span>';
+
+        const thumbHtml = item.thumbnail 
+          ? `<img src="./${item.thumbnail}" alt="${item.title}" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-105" loading="lazy">`
+          : `<div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-slate-400">
+               <span class="material-symbols-outlined text-4xl mb-1">web</span>
+               <span class="text-[10px] font-medium uppercase tracking-wider">HTML Preview</span>
+             </div>`;
+
+        return `
+          <div class="screen-card group bg-white rounded-xl border border-[#E2E8F0] overflow-hidden flex flex-col shadow-sm">
+            <!-- Thumbnail preview -->
+            <div class="relative h-44 bg-slate-100 overflow-hidden border-b border-[#E2E8F0] cursor-pointer" onclick="openPreview('${item.path}', '${encodeURIComponent(item.title)}', '${item.viewport}')">
+              ${thumbHtml}
+              <div class="absolute inset-0 bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                <button class="px-3 py-1.5 bg-white/95 hover:bg-white text-[#1A1A2E] text-xs font-semibold rounded-lg shadow-md flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm text-[#0F766E]">visibility</span> Quick View
+                </button>
+              </div>
+              <div class="absolute top-2.5 left-2.5">
+                ${vpBadge}
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-4 flex-1 flex flex-col">
+              <div class="flex items-center gap-1.5 text-[11px] font-semibold text-[#0F766E] uppercase tracking-wide mb-1 truncate">
+                <span>${item.module_name}</span>
+              </div>
+              <h3 class="font-bold text-sm text-[#1A1A2E] leading-snug line-clamp-2" title="${item.title}">
+                ${item.title}
+              </h3>
+              ${item.h1 ? `<p class="text-[11px] text-[#64748B] mt-1 line-clamp-1">${item.h1}</p>` : ''}
+              
+              <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-[10px] font-mono text-slate-400 truncate max-w-[150px]" title="./${item.path}">
+                  ./${item.path}
+                </span>
+                
+                <div class="flex items-center gap-1">
+                  <button 
+                    onclick="openPreview('${item.path}', '${encodeURIComponent(item.title)}', '${item.viewport}')"
+                    title="Preview in responsive frame"
+                    class="p-1.5 rounded-lg text-[#64748B] hover:text-[#0F766E] hover:bg-slate-100 transition">
+                    <span class="material-symbols-outlined text-base">fit_screen</span>
+                  </button>
+                  <a 
+                    href="./${item.path}" 
+                    target="_blank" 
+                    title="Open directly in new tab"
+                    class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#0F766E]/10 hover:bg-[#0F766E] text-[#0F766E] hover:text-white text-xs font-semibold transition">
+                    <span>Open</span>
+                    <span class="material-symbols-outlined text-xs">open_in_new</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Preview Modal Logic
+    function openPreview(path, encodedTitle, viewport) {
+      const title = decodeURIComponent(encodedTitle);
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalBadge').innerText = viewport;
+      document.getElementById('modalPath').innerText = './' + path;
+      document.getElementById('modalExternalLink').href = './' + path;
+      document.getElementById('previewIframe').src = './' + path;
+      
+      // Auto set width based on viewport
+      if (viewport === 'Mobile') {
+        setPreviewWidth('390px');
+      } else {
+        setPreviewWidth('100%');
+      }
+
+      document.getElementById('previewModal').classList.remove('hidden');
+    }
+
+    function closePreviewModal() {
+      document.getElementById('previewModal').classList.add('hidden');
+      document.getElementById('previewIframe').src = '';
+    }
+
+    function setPreviewWidth(width) {
+      const wrapper = document.getElementById('iframeWrapper');
+      wrapper.style.maxWidth = width;
+      
+      document.getElementById('pwFull').className = width === '100%' ? 'p-1.5 rounded bg-slate-100 text-[#0F766E]' : 'p-1.5 rounded hover:bg-slate-100 text-[#64748B]';
+      document.getElementById('pwTablet').className = width === '768px' ? 'p-1.5 rounded bg-slate-100 text-[#0F766E]' : 'p-1.5 rounded hover:bg-slate-100 text-[#64748B]';
+      document.getElementById('pwMobile').className = width === '390px' ? 'p-1.5 rounded bg-slate-100 text-[#0F766E]' : 'p-1.5 rounded hover:bg-slate-100 text-[#64748B]';
+    }
+
+    // Color Drawer Logic
+    function toggleColorDrawer() {
+      const drawer = document.getElementById('colorDrawer');
+      drawer.classList.toggle('translate-x-full');
+    }
+
+    // Keyboard shortcuts: ESC to close modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePreviewModal();
+        document.getElementById('colorDrawer').classList.add('translate-x-full');
+      }
+    });
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+  <script src="./hunar_workflow.js"></script>
+</body>
+</html>

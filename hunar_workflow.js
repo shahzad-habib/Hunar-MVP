@@ -37,9 +37,9 @@
   // 2. Canonical Target URLs
   const ROUTES = {
     landing: ROOT + 'landing_page/code.html',
-    customerSignIn: ROOT + 'worker_registration/hunar_customer_sign_in_desktop_split_layout/code.html',
-    customerRegister: ROOT + 'worker_registration/hunar_customer_register_split_layout_with_exact_form/code.html',
-    customerOtp: ROOT + 'worker_registration/hunar_customer_register_otp_verification_desktop_split_layout/code.html',
+    customerSignIn: ROOT + 'worker_registration/hunar_customer_sign_in_mobile_app_rounded_inputs/code.html',
+    customerRegister: ROOT + 'worker_registration/hunar_customer_register_mobile_app_rounded_inputs/code.html',
+    customerOtp: ROOT + 'worker_registration/hunar_customer_register_otp_verification_clean_mobile_app/code.html',
     customerDashboard: ROOT + 'marketplace_prototype/hunar_customer_dashboard/code.html',
     myJobs: ROOT + 'marketplace_prototype/my_jobs_hunar_customer_hub/code.html',
     postJob1: ROOT + 'marketplace_prototype/post_a_job_step_1_modern_service_selection/code.html',
@@ -78,7 +78,7 @@
     adminDisputes: ROOT + 'financial_portal/refunds_dispute_management_desktop/code.html',
 
     // Central Showcase Hub
-    showcaseHub: ROOT + 'index.html',
+    showcaseHub: ROOT + 'showcase_catalog.html',
   };
 
   // 3. Persistent Local State (Job & Workflow Context)
@@ -340,12 +340,16 @@
     // I. Customer Hub Sidebars (Global Across all customer hub pages)
     document.querySelectorAll('aside nav').forEach(nav => {
       nav.querySelectorAll('a, button').forEach(el => {
-        if (matchText(el, 'dashboard')) el.setAttribute('href', ROUTES.customerDashboard);
-        else if (matchText(el, 'my jobs') || matchText(el, 'jobs')) el.setAttribute('href', ROUTES.myJobs);
-        else if (matchText(el, 'messages') || matchText(el, 'chat') || matchText(el, 'offers')) el.setAttribute('href', ROUTES.directChat);
-        else if (matchText(el, 'wallet') || matchText(el, 'payments')) el.setAttribute('href', ROUTES.customerWallet);
-        else if (matchText(el, 'settings') || matchText(el, 'profile')) el.setAttribute('href', ROUTES.customerSettings);
-        else if (matchText(el, 'help') || matchText(el, 'support') || matchText(el, 'dispute')) el.setAttribute('href', ROUTES.disputeCenter);
+        const path = el.getAttribute('data-path') || '';
+        if (path === 'post-a-job' || matchText(el, 'post a job')) el.setAttribute('href', ROUTES.postJob1);
+        else if (path === 'customer-dashboard' || matchText(el, 'dashboard')) el.setAttribute('href', ROUTES.customerDashboard);
+        else if (path === 'my-jobs' || matchText(el, 'my jobs') || matchText(el, 'jobs')) el.setAttribute('href', ROUTES.myJobs);
+        else if (path === 'offers-and-bids' || matchText(el, 'offers')) el.setAttribute('href', ROUTES.jobOffers);
+        else if (path === 'service-bookings' || matchText(el, 'visits') || matchText(el, 'bookings')) el.setAttribute('href', ROUTES.arrivalTracker);
+        else if (path === 'messages' || matchText(el, 'messages') || matchText(el, 'chat')) el.setAttribute('href', ROUTES.directChat);
+        else if (path === 'payments-and-escrow' || matchText(el, 'wallet') || matchText(el, 'payments')) el.setAttribute('href', ROUTES.customerWallet);
+        else if (path === 'customer-profile' || matchText(el, 'settings') || matchText(el, 'profile')) el.setAttribute('href', ROUTES.customerSettings);
+        else if (path === 'guarantee-policy' || matchText(el, 'help') || matchText(el, 'support') || matchText(el, 'dispute')) el.setAttribute('href', ROUTES.disputeCenter);
       });
     });
 
@@ -354,11 +358,66 @@
       document.querySelectorAll('a, button').forEach(el => {
         if (matchText(el, 'post a job') || matchText(el, 'new job')) {
           el.setAttribute('href', ROUTES.postJob1);
+          el.addEventListener('click', () => { window.location.href = ROUTES.postJob1; });
         }
-        if (matchText(el, 'ac repair') || matchText(el, 'active job') || matchText(el, 'view offers')) {
+        if (matchText(el, 'view offers') || matchText(el, 'receiving offers')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
             window.location.href = ROUTES.jobOffers;
+          });
+        }
+        if (matchText(el, 'track arrival') || matchText(el, 'track technician')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.arrivalTracker;
+          });
+        }
+        if (matchText(el, 'details') && el.closest('.border')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.arrivalTracker;
+          });
+        }
+        if (matchText(el, 'message') && el.closest('.border')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.directChat;
+          });
+        }
+      });
+    }
+
+    // J2. My Jobs Hub
+    if (p.includes('my_jobs_hunar_customer_hub')) {
+      document.querySelectorAll('button, a').forEach(el => {
+        if (matchText(el, 'post a job') || matchText(el, 'new job')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.postJob1;
+          });
+        }
+        if (matchText(el, 'compare') || matchText(el, 'quotes') || matchText(el, 'offers')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.jobOffers;
+          });
+        }
+        if (matchText(el, 'review & release') || matchText(el, 'release escrow')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.escrowRelease;
+          });
+        }
+        if (matchText(el, 'message pros') || matchText(el, 'chat')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.directChat;
+          });
+        }
+        if (matchText(el, 'track arrival') || matchText(el, 'track technician')) {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = ROUTES.arrivalTracker;
           });
         }
       });
@@ -376,11 +435,18 @@
           a.setAttribute('href', isMobileAuth ? mobileRegister : ROUTES.customerRegister);
         }
       });
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          window.location.href = ROUTES.customerDashboard;
+        });
+      }
       document.querySelectorAll('button').forEach(btn => {
         if (matchText(btn, 'sign in') || matchText(btn, 'continue') || matchText(btn, 'login')) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = isMobileAuth ? mobileOtp : ROUTES.customerOtp;
+            window.location.href = ROUTES.customerDashboard;
           });
         }
       });
@@ -426,7 +492,7 @@
             e.preventDefault();
             btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-sm">sync</span> Activating Profile...`;
             setTimeout(() => {
-              window.location.href = ROUTES.workerPortalReact;
+              window.location.href = ROUTES.workerDashboardHTML;
             }, 800);
           });
         }
@@ -518,7 +584,7 @@
   function renderGlobalRibbon() {
     if (document.getElementById('hunar-mvp-ribbon')) return;
 
-    const isMinimized = localStorage.getItem('HUNAR_HUD_MINIMIZED') === 'true';
+    const isMinimized = localStorage.getItem('HUNAR_HUD_MINIMIZED') !== 'false';
 
     const container = document.createElement('div');
     container.id = 'hunar-mvp-ribbon';
@@ -571,11 +637,9 @@
     const items = [
       { label: 'Home', icon: 'home', href: ROUTES.landing },
       { label: 'Customer Hub', icon: 'person', href: ROUTES.customerDashboard },
-      { label: 'Post Job', icon: 'add_circle', href: ROUTES.postJob1 },
-      { label: 'Worker Portal (React)', icon: 'engineering', href: ROUTES.workerPortalReact, highlight: true },
-      { label: 'Admin Ops', icon: 'admin_panel_settings', href: ROUTES.adminAnalytics },
-      { label: 'Treasury', icon: 'account_balance', href: ROUTES.adminTreasury },
-      { label: 'Showcase Hub', icon: 'grid_view', href: ROUTES.showcaseHub },
+      { label: 'Worker Hub', icon: 'engineering', href: ROUTES.workerDashboardHTML },
+      { label: 'Worker App (React)', icon: 'bolt', href: ROUTES.workerPortalReact, highlight: true },
+      { label: 'Admin Portal', icon: 'admin_panel_settings', href: ROUTES.adminDashboard },
     ];
 
     items.forEach(item => {
