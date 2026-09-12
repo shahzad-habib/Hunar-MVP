@@ -1,0 +1,557 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>HUNAR Customer Hub</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        navy: "#1A1A2E",
+        teal: {
+          DEFAULT: "#0F766E",
+          dark: "#115E59",
+          light: "rgba(15, 118, 110, 0.1)"
+        },
+        orange: "#F59E0B",
+        success: "#16A34A",
+        error: "#DC2626",
+        gray: "#64748B",
+        background: "#F8FAFC",
+        border: "#E2E8F0",
+        surface: "#FFFFFF",
+        primary: "#0F766E",
+        "primary-dark": "#115E59",
+        secondary: "#1A1A2E",
+        
+        // Aliases used in templates
+        appBg: "#F8FAFC",
+        darkText: "#1A1A2E",
+        mutedText: "#64748B",
+        borderLine: "#E2E8F0",
+        "text-main": "#1A1A2E",
+        "surface-muted": "#F8FAFC",
+        "outline-border": "#E2E8F0",
+        
+        // Material Theme 3 Aliases
+        "on-surface": "#1A1A2E",
+        "on-surface-variant": "#64748B",
+        "on-background": "#1A1A2E",
+        "on-primary": "#FFFFFF",
+        "on-secondary": "#FFFFFF",
+        "on-error": "#FFFFFF",
+        "surface-container-lowest": "#FFFFFF",
+        "surface-container-low": "#F8FAFC",
+        "surface-container": "#F8FAFC",
+        "surface-container-high": "#F8FAFC",
+        "surface-container-highest": "#F8FAFC",
+        "surface-variant": "#F8FAFC",
+        "surface-tint": "#0F766E",
+        "surface-dim": "#E2E8F0",
+        "surface-bright": "#FFFFFF",
+        outline: "#64748B",
+        "outline-variant": "#E2E8F0",
+        "primary-container": "rgba(15, 118, 110, 0.1)",
+        "on-primary-container": "#0F766E",
+        "secondary-container": "rgba(26, 26, 46, 0.08)",
+        "on-secondary-container": "#1A1A2E",
+        "secondary-fixed": "rgba(15, 118, 110, 0.1)",
+        "secondary-fixed-dim": "rgba(15, 118, 110, 0.1)",
+        "on-secondary-fixed": "#1A1A2E",
+        "on-secondary-fixed-variant": "#115E59",
+        "primary-fixed": "rgba(15, 118, 110, 0.1)",
+        "primary-fixed-dim": "rgba(15, 118, 110, 0.1)",
+        "on-primary-fixed": "#1A1A2E",
+        "on-primary-fixed-variant": "#115E59",
+        "tertiary": "#F59E0B",
+        "tertiary-container": "rgba(245, 158, 11, 0.1)",
+        "on-tertiary-container": "#F59E0B",
+        "tertiary-fixed": "rgba(245, 158, 11, 0.1)",
+        "on-tertiary-fixed": "#1A1A2E",
+        "error-container": "rgba(220, 38, 38, 0.1)",
+        "on-error-container": "#DC2626",
+        "inverse-primary": "#0F766E",
+        "inverse-surface": "#1A1A2E",
+        "inverse-on-surface": "#F8FAFC"
+      },
+      spacing: {
+        "margin-desktop": "2rem",
+        "margin-tablet": "1.5rem",
+        "margin-mobile": "1rem",
+        "gutter-desktop": "1.5rem",
+        "gutter-mobile": "1rem",
+        "space-3xl": "4rem",
+        "space-2xl": "3rem",
+        "space-xl": "2rem",
+        "space-lg": "1.5rem",
+        "space-md": "1rem",
+        "space-base": "1rem",
+        "space-sm": "0.75rem",
+        "space-xs": "0.5rem",
+        "space-2xs": "0.25rem",
+        "space-xxs": "0.25rem",
+        "space-1": "0.25rem",
+        "space-2": "0.5rem",
+        "space-3": "0.75rem",
+        "space-4": "1rem",
+        "space-5": "1.25rem",
+        "space-6": "1.5rem",
+        "space-8": "2rem",
+        "space-12": "3rem",
+        "space-16": "4rem",
+        "space-20": "5rem",
+        "space-24": "6rem",
+        "space-stack-sm": "0.5rem",
+        "space-stack-md": "1rem",
+        "space-stack-lg": "1.5rem",
+        "section-gap": "2rem",
+        "gutter": "1.5rem"
+      },
+      fontSize: {
+        "stat-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "button-text": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+
+        "display-hero": ["48px", { lineHeight: "56px", letterSpacing: "-0.025em", fontWeight: "700" }],
+        "display-hero-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-kpi": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-kpi-mobile": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-page": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-page-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-section": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "headline-subsection": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }],
+        "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }],
+        "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "body-default": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-compact": ["13px", { lineHeight: "18px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-strong": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "600" }],
+        "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-md": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-md-medium": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "500" }],
+        "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "400" }],
+        "label-badge": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600" }],
+        "label-regular": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }],
+        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }],
+        "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" }],
+        "label-uppercase": ["10px", { lineHeight: "12px", letterSpacing: "0.05em", fontWeight: "700" }]
+      },
+      fontFamily: {
+        "stat-lg": ["Inter", "sans-serif"],
+        "button-text": ["Inter", "sans-serif"],
+
+        sans: ["Inter", "sans-serif"],
+        "body-default": ["Inter", "sans-serif"],
+        "body-compact": ["Inter", "sans-serif"],
+        "body-strong": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "body-sm": ["Inter", "sans-serif"],
+        "display-kpi": ["Inter", "sans-serif"],
+        "headline-page": ["Inter", "sans-serif"],
+        "headline-section": ["Inter", "sans-serif"],
+        "headline-subsection": ["Inter", "sans-serif"],
+        "headline-md": ["Inter", "sans-serif"],
+        "headline-sm": ["Inter", "sans-serif"],
+        "headline-lg": ["Inter", "sans-serif"],
+        "label-badge": ["Inter", "sans-serif"],
+        "label-regular": ["Inter", "sans-serif"],
+        "label-md": ["Inter", "sans-serif"],
+        "label-sm": ["Inter", "sans-serif"]
+      },
+      borderRadius: {
+        DEFAULT: "0.375rem",
+        sm: "0.25rem",
+        md: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px"
+      }
+    }
+  }
+};
+</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-[#E2E8F0] z-50 flex-col justify-between select-none hidden lg:flex"><div class="flex flex-col h-[calc(100vh-89px)]"><div class="h-16 px-gutter flex items-center justify-between border-b border-[#E2E8F0]"><div class="flex items-center gap-stack-sm"><div class="w-9 h-9 rounded-lg bg-[#0F766E] flex items-center justify-center text-on-primary font-headline-sm text-headline-sm font-bold shadow-sm">H</div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-[#1A1A2E] tracking-tight leading-none">HUNAR</span><span class="font-label-md text-[11px] leading-[14px] text-outline font-semibold uppercase tracking-wider mt-1">Customer Hub</span></div></div></div><div class="p-gutter pb-stack-sm"><a class="w-full flex items-center justify-center gap-stack-sm px-gutter py-stack-sm rounded-lg bg-[#0F766E] hover:opacity-95 text-on-primary font-button-text text-button-text shadow-sm transition-all" data-path="post-job" href="#"><span class="material-symbols-outlined text-[20px]">add</span><span class="">Post a Job</span></a></div><div class="flex-1 overflow-y-auto px-stack-md py-stack-sm"><nav class="space-y-1" data-active-classes="bg-[#0F766E] text-on-primary font-headline-sm text-label-md rounded-lg"><a class="flex items-center justify-between px-gutter py-stack-sm rounded-lg text-[#1A1A2E] font-label-md text-label-md hover:bg-surface-container-low transition-colors" data-path="dashboard" href="#"><span class="">Dashboard</span></a><a class="flex items-center justify-between px-gutter py-stack-sm rounded-lg text-[#1A1A2E] font-label-md text-label-md hover:bg-surface-container-low transition-colors" data-path="my-jobs" href="#"><span class="">My Jobs</span></a><a class="flex items-center justify-between px-gutter py-stack-sm rounded-lg text-[#1A1A2E] font-label-md text-label-md hover:bg-surface-container-low transition-colors" data-path="offers" href="#"><span class="">Offers</span><span class="font-label-md text-[12px] leading-[16px] px-2 py-0.5 rounded-full bg-surface-container-high text-[#1A1A2E] font-semibold border border-[#E2E8F0]">3</span></a><a aria-current="page" class="flex items-center justify-between px-gutter py-stack-sm transition-colors bg-[#0F766E] text-on-primary font-headline-sm text-label-md rounded-lg shadow-sm" data-path="visits" href="#"><span class="">Visits</span><span class="font-label-md text-[12px] leading-[16px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-[#0F766E] font-bold shadow-xs">1</span></a><a class="flex items-center justify-between px-gutter py-stack-sm rounded-lg text-[#1A1A2E] font-label-md text-label-md hover:bg-surface-container-low transition-colors" data-path="payments" href="#"><span class="">Payments</span></a><a class="flex items-center justify-between px-gutter py-stack-sm rounded-lg text-[#1A1A2E] font-label-md text-label-md hover:bg-surface-container-low transition-colors" data-path="profile" href="#"><span class="">Profile</span></a></nav></div></div><div class="p-stack-md border-t border-[#E2E8F0] bg-surface-container-lowest"><div class="flex items-center justify-between p-stack-sm rounded-lg hover:bg-surface-container-low transition-colors"><div class="flex items-center gap-stack-sm min-w-0"><div class="w-9 h-9 rounded-full bg-[#1A1A2E] flex items-center justify-center flex-shrink-0 text-on-primary font-button-text text-label-md">AK</div><div class="flex flex-col min-w-0"><span class="font-headline-sm text-label-md text-[#1A1A2E] truncate">Ahmed Khan</span><span class="font-label-md text-[12px] leading-[16px] text-outline truncate">Peshawar, PK</span></div></div><button aria-label="Account settings" class="text-outline hover:text-[#1A1A2E] p-1 rounded transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="w-full lg:pl-64"><header class="fixed top-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-[#E2E8F0] z-40 px-margin-desktop flex items-center justify-between gap-stack-md left-0 lg:left-64"><div class="flex items-center gap-stack-sm text-outline font-label-md text-label-md"><span class="text-[#1A1A2E] font-headline-sm">Customer Hub</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="text-outline font-body-md text-label-md">Home Services</span></div><div class="flex items-center gap-gutter"><div class="relative hidden md:flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-80 h-10 pl-9 pr-stack-md rounded-lg bg-surface-container-lowest border border-[#E2E8F0] font-body-md text-label-md text-[#1A1A2E] placeholder:text-outline focus:outline-none focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 transition-all" placeholder="Search services, visits, or pros..." type="text"></div><a class="hidden sm:inline-flex items-center gap-1.5 px-gutter py-2 rounded-lg bg-[#0F766E] hover:opacity-95 text-on-primary font-button-text text-label-md shadow-sm transition-all whitespace-nowrap flex-shrink-0" data-path="post-job" href="#"><span class="material-symbols-outlined text-[18px]">add</span><span class="">Post a Job</span></a><div class="h-6 w-px bg-[#E2E8F0]"></div><div class="flex items-center gap-stack-sm cursor-pointer"><div class="w-9 h-9 rounded-full bg-[#1A1A2E] flex items-center justify-center text-on-primary font-button-text text-label-md">AK</div><div class="hidden lg:flex flex-col text-left"><span class="font-headline-sm text-label-md text-[#1A1A2E] leading-tight">Ahmed Khan</span><span class="font-label-md text-[12px] leading-tight text-outline">Peshawar, PK</span></div><span class="material-symbols-outlined text-outline text-[18px]">expand_more</span></div></div></header><main class="w-full pt-20 pb-12 min-h-screen bg-[#F8FAFC] px-4 sm:px-6 lg:px-8"><div class="flex flex-col w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md pb-stack-lg border-b border-[#E2E8F0]">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[12px] font-label-md font-semibold bg-surface-container-low text-[#1A1A2E] border border-[#E2E8F0]"><span class="w-1.5 h-1.5 rounded-full bg-[#16A34A] animate-ping"></span>Live Dispatch Active</span>
+<span class="text-outline text-label-md font-label-md">•</span>
+<span class="text-outline text-label-md font-label-md">Sector F-4, Phase 6, Hayatabad, Peshawar</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-[#1A1A2E] tracking-tight">Scheduled Visits &amp; Arrival Tracker</h1>
+<p class="font-body-md text-body-md text-outline mt-1">Track your technician's live ETA, view upcoming home visits, and manage appointment schedules.</p>
+</div>
+<div class="inline-flex p-1 rounded-xl bg-surface-container-low border border-[#E2E8F0] select-none self-start md:self-auto">
+<button class="tab-btn active px-4 py-2 rounded-lg font-button-text text-label-md text-on-primary bg-[#0F766E] shadow-sm transition-all" data-tab="upcoming" type="button">
+        Upcoming (2)
+      </button>
+<button class="tab-btn px-4 py-2 rounded-lg font-button-text text-label-md text-[#1A1A2E] hover:text-[#0F766E] transition-colors" data-tab="past" type="button">
+        Past Visits (12)
+      </button>
+<button class="tab-btn px-4 py-2 rounded-lg font-button-text text-label-md text-[#1A1A2E] hover:text-[#0F766E] transition-colors" data-tab="calendar" type="button">
+        Calendar View
+      </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mt-stack-lg items-start">
+<div class="lg:col-span-7 flex flex-col gap-stack-lg">
+<div class="relative bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+<div class="h-2 w-full bg-gradient-to-r from-[#0F766E] via-[#0F766E]/80 to-[#16A34A]"></div>
+<div class="p-gutter flex flex-col gap-stack-md">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#16A34A] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-[#16A34A]"></span>
+</span>
+<span class="font-headline-sm text-headline-sm text-[#1A1A2E] font-bold tracking-tight">Technician On The Way!</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low border border-[#E2E8F0]">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">schedule</span>
+<span class="font-label-md text-label-md font-bold text-[#1A1A2E]">ETA 22 mins</span>
+<span class="text-outline text-[12px] font-label-md">(3:30 – 4:30 PM)</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">plumbing</span>
+<h2 class="font-headline-sm text-headline-sm text-[#1A1A2E] font-semibold">Kitchen Pipe Joint Leak &amp; Pressure Valve Fix</h2>
+</div>
+<p class="text-outline font-label-md text-label-md mt-1 pl-6">Order ID: #JOB-98214 • Placed Today at 01:15 PM</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low/60 border border-[#E2E8F0] flex flex-col md:flex-row md:items-center justify-between gap-stack-md">
+<div class="flex items-center gap-stack-md">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-surface-container-lowest shadow-sm" data-alt="Close up professional portrait of Rashid Ali, a certified Pakistani home plumbing technician in neat navy blue polo uniform smiling confident and trustworthy studio lighting with soft blurred neutral backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaCXNU7OdldLpKD3_BitV2CW_merpSRYqN9CJL_PK54ENp7ogFHnWijPBwASVCUGSQktx3EqwvdGuUOrV-I6WSgat5gf3Gp1Ff5mJYQKuU0pTN6Hr7md9G_kFUPndDPvbpD5RJXOs-VkgR1oE7IWWEGX9LkIrbcBdBocVEwR4c8U-X_r_WnE_B-kxYvHzTEV3uPMcb8VhfLF_0yvKGkLmezJmfyzSrTxC3rtpMuWi5D96d4PHkDnz_">
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-[#16A34A] border-2 border-surface-container-lowest rounded-full"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-label-md font-bold text-[#1A1A2E]">Rashid Ali</span>
+<span class="material-symbols-outlined text-[16px] text-[#0F766E]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[11px] font-label-md font-semibold px-2 py-0.5 rounded bg-surface-container-highest text-[#1A1A2E]">#HN-4821</span>
+</div>
+<span class="font-label-md text-[13px] text-outline">Rashid &amp; Sons Plumbing</span>
+<div class="flex items-center gap-2 mt-1 font-label-md text-[12px] text-[#1A1A2E]">
+<span class="inline-flex items-center gap-1 text-[#F59E0B] font-semibold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                  </span>
+<span class="text-outline">•</span>
+<span class="text-outline">Honda CD70 (<span class="font-semibold text-[#1A1A2E]">LEB-4921</span>)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:items-end">
+<span class="text-[11px] font-label-md uppercase tracking-wider text-outline font-semibold">Technician Direct</span>
+<a class="font-label-md text-label-md font-bold text-[#1A1A2E] hover:text-[#0F766E] transition-colors" href="tel:+923005542198">+92 300 5542198</a>
+<span class="text-[11px] font-label-md text-[#16A34A] font-semibold flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span> Verified Biometric ID
+              </span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-[#E2E8F0] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-stack-sm"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[#1A1A2E] text-[22px]">shield_lock</span><div class="flex flex-col"><span class="font-label-md text-label-md font-bold text-[#1A1A2E]">Doorstep Security Code</span><span class="font-label-md text-[12px] text-outline">Share with technician strictly after inspecting ID badge</span></div></div><div class="flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-lg border border-[#E2E8F0] shadow-xs"><span class="font-mono text-headline-sm font-extrabold text-[#1A1A2E] tracking-widest">6 4 9 2</span><button aria-label="Copy security code" class="text-outline hover:text-[#0F766E] p-1 transition-colors" onclick="navigator.clipboard?.writeText('6492')" type="button"><span class="material-symbols-outlined text-[16px]">content_copy</span></button></div></div>
+<div class="relative w-full h-64 rounded-xl overflow-hidden border border-[#E2E8F0] bg-surface-container-low group">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-location="University Road, Saddar, Peshawar" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCG_V-dw4qhu_sikD4nE0ACTGUlBj8Jx4WuNXJi3cOPQCrNC5VD-XSsX3B2v38B__5Ll5xtd2olp5PoQWK5fvwWdzOf__MXKG_9SKcKvdy3uImENMUkZiJmMu0dUc3Q5opwNz7r80DJQ6cH1RYVfgK6ZZV_Uhk_w4zAh6WhYtD_8pXe47FoLRhX81wXmHRBzE-_qnOOdTQftWbAHry7kBnBMETxT0FlqMF18Js1ssVUhDoOj9V5PdPU&quot;); filter: saturate(0.9) contrast(1.05);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/60 via-transparent to-transparent pointer-events-none"></div>
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" preserveAspectRatio="none" viewBox="0 0 600 256">
+<path class="opacity-80" d="M 60,200 C 140,190 180,120 260,110 S 420,130 520,60" stroke="#0F766E" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="4"></path>
+<path d="M 60,200 C 140,190 180,120 260,110 S 330,122 360,105" stroke="#0F766E" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="absolute top-10 right-10 flex flex-col items-center pointer-events-none">
+<div class="w-8 h-8 rounded-full bg-[#1A1A2E] text-on-primary flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[18px]">home</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-md text-[11px] font-bold text-[#1A1A2E] shadow-xs mt-1">Your Home</span>
+</div>
+<div class="absolute top-[88px] left-[340px] flex flex-col items-center transition-transform hover:scale-110 cursor-pointer">
+<div class="relative flex items-center justify-center">
+<span class="animate-ping absolute inline-flex h-9 w-9 rounded-full bg-[#0F766E] opacity-40"></span>
+<div class="w-9 h-9 rounded-full bg-[#0F766E] text-on-primary flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-[20px]">two_wheeler</span>
+</div>
+</div>
+<div class="px-2 py-0.5 rounded bg-[#1A1A2E] text-on-primary font-label-md text-[11px] font-semibold shadow mt-1 whitespace-nowrap">
+                Rashid • 1.4 km
+              </div>
+</div>
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#E2E8F0] flex items-center gap-2 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
+<span class="font-label-md text-[12px] font-medium text-[#1A1A2E]">University Rd → Saddar Bazaar</span>
+</div>
+<div class="absolute bottom-3 right-3 flex items-center gap-1.5">
+<button aria-label="Center live map" class="p-1.5 rounded-lg bg-surface-container-lowest/95 border border-[#E2E8F0] text-[#1A1A2E] hover:text-[#0F766E] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">my_location</span>
+</button>
+<button aria-label="Toggle satellite view" class="p-1.5 rounded-lg bg-surface-container-lowest/95 border border-[#E2E8F0] text-[#1A1A2E] hover:text-[#0F766E] shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">layers</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-stack-sm pt-2">
+<a class="inline-flex items-center justify-center gap-2 px-gutter py-2.5 rounded-lg bg-[#0F766E] hover:opacity-95 text-on-primary font-button-text text-label-md shadow-sm transition-all flex-1 sm:flex-initial" href="tel:+923005542198">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span class="">Call Technician</span>
+</a>
+<button class="inline-flex items-center justify-center gap-2 px-gutter py-2.5 rounded-lg bg-surface-container-lowest border border-[#1A1A2E] hover:bg-surface-container-low text-[#1A1A2E] font-button-text text-label-md transition-colors flex-1 sm:flex-initial" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span class="">Message</span>
+</button>
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-surface-container-lowest hover:bg-[#DC2626]/10/30 text-error font-button-text text-label-md transition-colors ml-auto" type="button">
+<span class="material-symbols-outlined text-[18px]">event_repeat</span>
+<span class="">Emergency Reschedule</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] p-gutter shadow-sm transition-all hover:shadow-md flex flex-col gap-stack-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-md font-label-md text-[12px] font-bold uppercase tracking-wider bg-surface-container-high text-[#1A1A2E]">Tomorrow</span>
+<span class="font-label-md text-label-md text-outline">Oct 25 • 10:00 AM – 11:30 AM</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[12px] font-label-md font-semibold bg-[#16A34A]/10 text-[#16A34A] border border-[#16A34A]/20">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            Confirmed
+          </span>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-stack-sm">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-[#0F766E] flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">ac_unit</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-[#1A1A2E] font-semibold">Master Bedroom Split AC Servicing &amp; Chemical Wash</h3>
+<span class="font-label-md text-[13px] text-outline mt-0.5">Assigned: <strong class="text-[#1A1A2E]">Ali Khan</strong> (CoolBreeze Services) • ID #HN-1092</span>
+<span class="font-label-md text-[12px] text-outline mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">location_on</span>
+                House 45, Street 12, Gulberg III, Lahore
+              </span>
+</div>
+</div>
+<div class="flex items-center sm:flex-col items-end gap-1 font-label-md text-label-md">
+<span class="text-outline text-[12px]">Estimated Fee</span>
+<span class="font-headline-sm text-headline-sm text-[#1A1A2E] font-bold">PKR 3,500</span>
+</div>
+</div>
+<div class="h-px bg-[#E2E8F0] my-1"></div>
+<div class="flex flex-wrap items-center justify-between gap-stack-sm">
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-[#1A1A2E] font-button-text text-label-md transition-colors" type="button">
+              Reschedule Time
+            </button>
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low text-outline hover:text-[#1A1A2E] font-button-text text-label-md transition-colors" type="button">
+              Cancel Visit
+            </button>
+</div>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[#0F766E] font-button-text text-label-md hover:underline" type="button">
+<span class="">View Booking Details</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] p-gutter shadow-sm flex flex-col gap-stack-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#1A1A2E] text-[20px]">history</span>
+<h4 class="font-headline-sm text-headline-sm text-[#1A1A2E] font-semibold">Past Visit History Snippet</h4>
+</div>
+<a class="font-label-md text-label-md font-semibold text-[#0F766E] hover:underline" href="#">See all 12 visits</a>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low/40 border border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between gap-stack-sm hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#16A34A]/10 text-[#16A34A] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-label-md font-bold text-[#1A1A2E]">Water Heater Flush &amp; Valve Replacement</span>
+<span class="font-label-md text-[13px] text-outline">Oct 22, 2024 • Rashid &amp; Sons Plumbing</span>
+<div class="flex items-center gap-1 text-[#F59E0B] text-[12px] font-label-md font-semibold mt-0.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-outline ml-1 font-normal">(5.0 Given)</span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between sm:justify-center gap-2">
+<span class="text-[12px] font-label-md text-outline">Invoice <strong class="text-[#1A1A2E]">#HN-9082</strong></span>
+<a class="inline-flex items-center gap-1 text-[13px] font-label-md font-semibold text-[#0F766E] hover:underline" href="#">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span class="">Download PDF</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-stack-lg">
+<div class="bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] p-gutter shadow-sm flex flex-col gap-stack-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#1A1A2E] text-[20px]">calendar_month</span>
+<span class="font-headline-sm text-headline-sm text-[#1A1A2E] font-bold">October 2024</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Previous month" class="w-8 h-8 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-[#1A1A2E] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button aria-label="Next month" class="w-8 h-8 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-[#1A1A2E] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-label-md text-[12px] text-outline font-semibold pb-1 border-b border-[#E2E8F0]">
+<span class="">Su</span><span class="">Mo</span><span class="">Tu</span><span class="">We</span><span class="">Th</span><span class="">Fr</span><span class="">Sa</span>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-label-md text-label-md">
+<span class="py-2 text-outline/40">29</span>
+<span class="py-2 text-outline/40">30</span>
+<span class="py-2 text-[#1A1A2E]">1</span>
+<span class="py-2 text-[#1A1A2E]">2</span>
+<span class="py-2 text-[#1A1A2E]">3</span>
+<span class="py-2 text-[#1A1A2E]">4</span>
+<span class="py-2 text-[#1A1A2E]">5</span>
+<span class="py-2 text-[#1A1A2E]">6</span>
+<span class="py-2 text-[#1A1A2E]">7</span>
+<span class="py-2 text-[#1A1A2E]">8</span>
+<span class="py-2 text-[#1A1A2E]">9</span>
+<span class="py-2 text-[#1A1A2E]">10</span>
+<span class="py-2 text-[#1A1A2E]">11</span>
+<span class="py-2 text-[#1A1A2E]">12</span>
+<span class="py-2 text-[#1A1A2E]">13</span>
+<span class="py-2 text-[#1A1A2E]">14</span>
+<span class="py-2 text-[#1A1A2E]">15</span>
+<span class="py-2 text-[#1A1A2E]">16</span>
+<span class="py-2 text-[#1A1A2E]">17</span>
+<span class="py-2 text-[#1A1A2E]">18</span>
+<span class="py-2 text-[#1A1A2E]">19</span>
+<span class="py-2 text-[#1A1A2E]">20</span>
+<span class="py-2 text-[#1A1A2E]">21</span>
+<div class="relative py-2 font-bold text-[#1A1A2E] bg-surface-container-low rounded-lg">
+<span class="">22</span>
+<span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-outline"></span>
+</div>
+<span class="py-2 text-[#1A1A2E]">23</span>
+<div class="relative py-2 font-bold text-on-primary bg-[#0F766E] rounded-lg shadow-xs">
+<span class="">24</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#16A34A] ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="relative py-2 font-bold text-[#1A1A2E] bg-surface-container-high rounded-lg border border-[#E2E8F0]"><span class="">25</span><span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#0F766E]"></span></div>
+<span class="py-2 text-[#1A1A2E]">26</span>
+<span class="py-2 text-[#1A1A2E]">27</span>
+<span class="py-2 text-[#1A1A2E]">28</span>
+<span class="py-2 text-[#1A1A2E]">29</span>
+<span class="py-2 text-[#1A1A2E]">30</span>
+<span class="py-2 text-[#1A1A2E]">31</span>
+<span class="py-2 text-outline/40">1</span>
+<span class="py-2 text-outline/40">2</span>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-[#E2E8F0] font-label-md text-[12px]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F766E]"></span>
+<span class="text-[#1A1A2E] font-medium">Today's Live</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-container-high border border-[#1A1A2E]"></span>
+<span class="text-[#1A1A2E] font-medium">Upcoming (Oct 25)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-outline">Past</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] p-gutter shadow-sm flex flex-col gap-stack-md">
+<div class="flex items-center gap-2 pb-2 border-b border-[#E2E8F0]">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low text-[#1A1A2E] flex items-center justify-center border border-[#E2E8F0]"><span class="material-symbols-outlined text-[20px]">verified_user</span></div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-label-md font-bold text-[#1A1A2E]">Safety &amp; Entry Checklist</span>
+<span class="font-label-md text-[12px] text-outline">Follow these 3 steps before unlocking the gate</span>
+</div>
+</div>
+<div class="space-y-stack-md">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-[#1A1A2E] flex items-center justify-center font-bold text-[12px] flex-shrink-0 mt-0.5">
+              1
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[14px] font-bold text-[#1A1A2E]">Verify Digital Badge &amp; CNIC</span>
+<p class="font-body-md text-[13px] text-outline leading-snug mt-0.5">
+                Ensure the face and government CNIC on the pro app matches badge ID <strong>#HN-4821</strong>.
+              </p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-[#1A1A2E] flex items-center justify-center font-bold text-[12px] flex-shrink-0 mt-0.5">
+              2
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[14px] font-bold text-[#1A1A2E]">Ask for Security PIN First</span>
+<p class="font-body-md text-[13px] text-outline leading-snug mt-0.5">
+                The pro must recite <strong>6 4 9 2</strong> before entry. Never give your pin out over phone or text.
+              </p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-[#1A1A2E] flex items-center justify-center font-bold text-[12px] flex-shrink-0 mt-0.5">
+              3
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-[14px] font-bold text-[#1A1A2E]">Zero Cash On Site</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-[#F59E0B]/10 text-[#F59E0B]">Guarantee</span>
+</div>
+<p class="font-body-md text-[13px] text-outline leading-snug mt-0.5">
+                Pay exclusively via HUNAR Escrow online. Cash handoffs void your 7-day repair rework warranty.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-[#1A1A2E] to-[#1A1A2E] rounded-2xl p-gutter text-on-primary shadow-md flex flex-col gap-stack-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-[#0F766E]/20 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-[#0F766E]">support_agent</span>
+<span class="font-headline-sm text-label-md font-bold uppercase tracking-wider text-on-primary">Hunar Dispatch 24/7</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-md font-semibold bg-[#16A34A]/20 text-[#16A34A] border border-[#16A34A]/40">
+            Average response &lt;2m
+          </span>
+</div>
+<h5 class="font-headline-sm text-headline-sm font-bold leading-tight mt-1">Need to adjust timing or report a technician delay?</h5>
+<p class="font-body-md text-[13px] text-[#F8FAFC]/80 leading-relaxed">Our priority operations desk is actively monitoring your route. One tap dials directly into the Peshawar operations unit.</p>
+<div class="flex items-center gap-stack-sm pt-2">
+<a class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#0F766E] hover:opacity-95 text-on-primary font-button-text text-label-md shadow-sm transition-all flex-1" href="tel:+924211148627">
+<span class="material-symbols-outlined text-[18px]">headset_mic</span>
+<span class="">Call Dispatch</span>
+</a>
+<button class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 text-on-primary font-button-text text-label-md transition-colors border border-surface-container-lowest/20" type="button">
+<span class="">Help Center</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('bg-[#0F766E]', 'text-on-primary', 'shadow-sm', 'active');
+          b.classList.add('text-[#1A1A2E]');
+        });
+        btn.classList.add('bg-[#0F766E]', 'text-on-primary', 'shadow-sm', 'active');
+        btn.classList.remove('text-[#1A1A2E]');
+      });
+    });
+  </script>
+</div></main></div>
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>HUNAR - Post a Job - Details &amp; Media</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        navy: "#1A1A2E",
+        teal: {
+          DEFAULT: "#0F766E",
+          dark: "#115E59",
+          light: "rgba(15, 118, 110, 0.1)"
+        },
+        orange: "#F59E0B",
+        success: "#16A34A",
+        error: "#DC2626",
+        gray: "#64748B",
+        background: "#F8FAFC",
+        border: "#E2E8F0",
+        surface: "#FFFFFF",
+        primary: "#0F766E",
+        "primary-dark": "#115E59",
+        secondary: "#1A1A2E",
+        
+        // Aliases used in templates
+        appBg: "#F8FAFC",
+        darkText: "#1A1A2E",
+        mutedText: "#64748B",
+        borderLine: "#E2E8F0",
+        "text-main": "#1A1A2E",
+        "surface-muted": "#F8FAFC",
+        "outline-border": "#E2E8F0",
+        
+        // Material Theme 3 Aliases
+        "on-surface": "#1A1A2E",
+        "on-surface-variant": "#64748B",
+        "on-background": "#1A1A2E",
+        "on-primary": "#FFFFFF",
+        "on-secondary": "#FFFFFF",
+        "on-error": "#FFFFFF",
+        "surface-container-lowest": "#FFFFFF",
+        "surface-container-low": "#F8FAFC",
+        "surface-container": "#F8FAFC",
+        "surface-container-high": "#F8FAFC",
+        "surface-container-highest": "#F8FAFC",
+        "surface-variant": "#F8FAFC",
+        "surface-tint": "#0F766E",
+        "surface-dim": "#E2E8F0",
+        "surface-bright": "#FFFFFF",
+        outline: "#64748B",
+        "outline-variant": "#E2E8F0",
+        "primary-container": "rgba(15, 118, 110, 0.1)",
+        "on-primary-container": "#0F766E",
+        "secondary-container": "rgba(26, 26, 46, 0.08)",
+        "on-secondary-container": "#1A1A2E",
+        "secondary-fixed": "rgba(15, 118, 110, 0.1)",
+        "secondary-fixed-dim": "rgba(15, 118, 110, 0.1)",
+        "on-secondary-fixed": "#1A1A2E",
+        "on-secondary-fixed-variant": "#115E59",
+        "primary-fixed": "rgba(15, 118, 110, 0.1)",
+        "primary-fixed-dim": "rgba(15, 118, 110, 0.1)",
+        "on-primary-fixed": "#1A1A2E",
+        "on-primary-fixed-variant": "#115E59",
+        "tertiary": "#F59E0B",
+        "tertiary-container": "rgba(245, 158, 11, 0.1)",
+        "on-tertiary-container": "#F59E0B",
+        "tertiary-fixed": "rgba(245, 158, 11, 0.1)",
+        "on-tertiary-fixed": "#1A1A2E",
+        "error-container": "rgba(220, 38, 38, 0.1)",
+        "on-error-container": "#DC2626",
+        "inverse-primary": "#0F766E",
+        "inverse-surface": "#1A1A2E",
+        "inverse-on-surface": "#F8FAFC"
+      },
+      spacing: {
+        "margin-desktop": "2rem",
+        "margin-tablet": "1.5rem",
+        "margin-mobile": "1rem",
+        "gutter-desktop": "1.5rem",
+        "gutter-mobile": "1rem",
+        "space-3xl": "4rem",
+        "space-2xl": "3rem",
+        "space-xl": "2rem",
+        "space-lg": "1.5rem",
+        "space-md": "1rem",
+        "space-base": "1rem",
+        "space-sm": "0.75rem",
+        "space-xs": "0.5rem",
+        "space-2xs": "0.25rem",
+        "space-xxs": "0.25rem",
+        "space-1": "0.25rem",
+        "space-2": "0.5rem",
+        "space-3": "0.75rem",
+        "space-4": "1rem",
+        "space-5": "1.25rem",
+        "space-6": "1.5rem",
+        "space-8": "2rem",
+        "space-12": "3rem",
+        "space-16": "4rem",
+        "space-20": "5rem",
+        "space-24": "6rem",
+        "space-stack-sm": "0.5rem",
+        "space-stack-md": "1rem",
+        "space-stack-lg": "1.5rem",
+        "section-gap": "2rem",
+        "gutter": "1.5rem"
+      },
+      fontSize: {
+        "stat-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "button-text": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+
+        "display-hero": ["48px", { lineHeight: "56px", letterSpacing: "-0.025em", fontWeight: "700" }],
+        "display-hero-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-kpi": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-kpi-mobile": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-page": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-page-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-section": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "headline-subsection": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }],
+        "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }],
+        "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "body-default": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-compact": ["13px", { lineHeight: "18px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-strong": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "600" }],
+        "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-md": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-md-medium": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "500" }],
+        "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "400" }],
+        "label-badge": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600" }],
+        "label-regular": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }],
+        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }],
+        "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" }],
+        "label-uppercase": ["10px", { lineHeight: "12px", letterSpacing: "0.05em", fontWeight: "700" }]
+      },
+      fontFamily: {
+        "stat-lg": ["Inter", "sans-serif"],
+        "button-text": ["Inter", "sans-serif"],
+
+        sans: ["Inter", "sans-serif"],
+        "body-default": ["Inter", "sans-serif"],
+        "body-compact": ["Inter", "sans-serif"],
+        "body-strong": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "body-sm": ["Inter", "sans-serif"],
+        "display-kpi": ["Inter", "sans-serif"],
+        "headline-page": ["Inter", "sans-serif"],
+        "headline-section": ["Inter", "sans-serif"],
+        "headline-subsection": ["Inter", "sans-serif"],
+        "headline-md": ["Inter", "sans-serif"],
+        "headline-sm": ["Inter", "sans-serif"],
+        "headline-lg": ["Inter", "sans-serif"],
+        "label-badge": ["Inter", "sans-serif"],
+        "label-regular": ["Inter", "sans-serif"],
+        "label-md": ["Inter", "sans-serif"],
+        "label-sm": ["Inter", "sans-serif"]
+      },
+      borderRadius: {
+        DEFAULT: "0.375rem",
+        sm: "0.25rem",
+        md: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px"
+      }
+    }
+  }
+};
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for textareas */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-lowest'); 
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant'); 
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container bg-surface-container-lowest" style="background-color: rgb(255, 255, 255);">
+<!-- Top Navigation (Suppressed for Transactional Flow, minimal header provided) -->
+<header class="bg-surface-container-lowest border-b border-outline-variant fixed top-0 w-full z-50 h-20 px-margin-desktop md:px-margin-desktop px-margin-mobile flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<span class="text-primary font-headline-md font-bold" style="color: rgb(18, 59, 93);">HUNAR</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1">
+<span class="font-button-text text-button-text">Save &amp; Exit</span>
+</button>
+</header>
+<!-- Main Layout -->
+<main class="pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex justify-center">
+<div class="w-full max-w-3xl">
+<!-- Progress Indicator -->
+<div class="mb-stack-lg space-y-3"><div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 sm:px-6 shadow-sm mb-stack-lg">
+  <div class="flex items-center justify-between relative">
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2px] bg-outline-variant z-0" style="background-color: #E2E8F0;"></div>
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] bg-secondary z-0 transition-all" style="width: 33.333%; background-color: #0F766E;"></div>
+
+    <div class="relative z-10 flex flex-col items-center group cursor-pointer">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center text-on-primary shadow-sm" style="background-color: #0F766E;">
+        <span class="material-symbols-outlined text-[18px]">check</span>
+      </div>
+      <span class="absolute -bottom-6 text-[12px] sm:text-[13px] font-semibold tracking-tight whitespace-nowrap" style="color: #0F766E;">1. Service</span>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center text-on-primary font-bold text-[14px] shadow-sm ring-4 ring-secondary/20" style="background-color: #0F766E;">
+        2
+      </div>
+      <span class="absolute -bottom-6 text-[12px] sm:text-[13px] font-bold tracking-tight whitespace-nowrap" style="color: #1A1A2E;">2. Details</span>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant font-semibold text-[14px] border-2 bg-surface-container-lowest" style="border-color: #E2E8F0; color: #64748B;">
+        3
+      </div>
+      <span class="absolute -bottom-6 text-[12px] sm:text-[13px] font-medium text-on-surface-variant whitespace-nowrap" style="color: #64748B;">3. Schedule</span>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant font-semibold text-[14px] border-2 bg-surface-container-lowest" style="border-color: #E2E8F0; color: #64748B;">
+        4
+      </div>
+      <span class="absolute -bottom-6 text-[12px] sm:text-[13px] font-medium text-on-surface-variant whitespace-nowrap" style="color: #64748B;">4. Review</span>
+    </div>
+  </div>
+  <div class="h-4"></div>
+</div></div>
+<!-- Form Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(23,32,51,0.05)] p-stack-lg md:p-[40px] space-y-section-gap">
+<!-- Step 2: Details -->
+<section class="space-y-stack-md">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-stack-sm" style="color: rgb(18, 59, 93);">Describe the job</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Be clear and specific to get the best quotes from professionals.</p>
+</div>
+<div class="space-y-stack-md">
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface" for="job-title" style="color: rgb(18, 59, 93);">Job Title <span class="text-error">*</span></label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" id="job-title" placeholder="e.g., Leaking pipe under kitchen sink" type="text">
+</div>
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface" for="job-description" style="color: rgb(18, 59, 93);">Detailed Description <span class="text-error">*</span></label>
+<textarea class="w-full p-4 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none resize-y min-h-[120px]" id="job-description" placeholder="Provide as much detail as possible. What needs fixing? When did it start? Are there any specific requirements or access issues?" rows="5"></textarea>
+<div class="flex justify-between items-center text-on-surface-variant" style="color: rgb(18, 59, 93);">
+<span class="font-label-md text-label-md text-[12px]">Minimum 50 characters required</span>
+<span class="font-label-md text-label-md text-[12px]">0 / 1000</span>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-outline-variant">
+<!-- Step 3: Media -->
+<section class="space-y-stack-md">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-stack-sm" style="color: rgb(18, 59, 93);">Add Media (Optional but recommended)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Photos and voice notes help professionals understand the exact nature of the problem, leading to more accurate estimates.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Image Upload Area -->
+<div class="border-2 border-dashed border-outline-variant rounded-xl bg-surface-container-low p-stack-lg flex flex-col items-center justify-center text-center gap-3 hover:border-secondary transition-colors cursor-pointer group min-h-[200px]" style="border-color: rgb(226, 232, 240); background-color: rgb(255, 255, 255);">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-colors" style="background-color: rgb(241, 245, 249); color: rgb(15, 139, 141);">
+<span class="material-symbols-outlined text-[24px]">add_photo_alternate</span>
+</div>
+<div>
+<span class="font-button-text text-button-text text-secondary group-hover:underline" style="color: rgb(15, 139, 141);">Click to upload</span>
+<span class="font-body-md text-body-md text-on-surface-variant block mt-1">or drag and drop images here</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-[12px]">Max 5 photos (JPG, PNG). 5MB per file.</span>
+</div>
+<!-- Voice Note Area -->
+<div class="border border-outline-variant rounded-xl bg-surface p-stack-lg flex flex-col justify-between min-h-[200px]" style="border-color: rgb(226, 232, 240); background-color: rgb(255, 255, 255);">
+<div>
+<div class="flex items-center gap-2 mb-2"><span class="material-symbols-outlined" style="color: rgb(15, 139, 141);">mic</span><h3 class="font-label-md text-label-md font-semibold" style="color: rgb(18, 59, 93);">Voice Note</h3></div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px]">Easier to explain by talking? Record a short audio description of the issue.</p>
+</div>
+<div class="mt-stack-md flex flex-col items-center gap-3">
+<!-- Idle State -->
+<button class="w-14 h-14 rounded-full bg-error-container text-on-error-container flex items-center justify-center hover:bg-error hover:text-on-error transition-colors shadow-sm relative group" style="background-color: rgb(248, 250, 252); border: 1px solid rgb(226, 232, 240); color: rgb(15, 139, 141);">
+<span class="material-symbols-outlined text-[28px] fill">mic</span>
+<span class="absolute -top-8 bg-on-surface text-surface text-[12px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity font-label-md whitespace-nowrap">Click to record</span>
+</button>
+<span class="font-label-md text-label-md text-on-surface-variant">00:00 / 02:00</span>
+<!-- Recording State (Hidden by default, shown for illustration) -->
+<!-- 
+                                <div class="flex items-center gap-4 w-full justify-center">
+                                    <button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-outline-variant transition-colors">
+                                        <span class="material-symbols-outlined">stop</span>
+                                    </button>
+                                    <div class="flex-1 max-w-[150px] flex items-center gap-1 h-8">
+                                        <div class="w-1 bg-error rounded-full h-2 animate-[pulse_1s_ease-in-out_infinite]"></div>
+                                        <div class="w-1 bg-error rounded-full h-4 animate-[pulse_1s_ease-in-out_infinite_100ms]"></div>
+                                        <div class="w-1 bg-error rounded-full h-6 animate-[pulse_1s_ease-in-out_infinite_200ms]"></div>
+                                        <div class="w-1 bg-error rounded-full h-3 animate-[pulse_1s_ease-in-out_infinite_300ms]"></div>
+                                        <div class="w-1 bg-error rounded-full h-5 animate-[pulse_1s_ease-in-out_infinite_400ms]"></div>
+                                    </div>
+                                    <span class="font-label-md text-label-md text-error font-semibold">00:14</span>
+                                </div> 
+                                -->
+</div>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<div class="pt-stack-md border-t border-outline-variant flex justify-between items-center flex-col-reverse sm:flex-row gap-4">
+<button class="w-full sm:w-auto px-6 py-3 rounded-lg border border-outline bg-surface-container-lowest text-on-surface font-button-text text-button-text hover:bg-surface-container-low transition-colors text-center">
+                        Back
+                    </button>
+<button class="w-full sm:w-auto px-6 py-3 rounded-lg bg-secondary text-on-primary font-button-text text-button-text hover:bg-secondary/90 shadow-sm transition-colors text-center" style="background-color: rgb(15, 139, 141); color: rgb(255, 255, 255);">
+                        Next Step
+                    </button>
+</div>
+</div>
+</div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

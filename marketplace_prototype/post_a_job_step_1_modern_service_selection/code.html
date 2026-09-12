@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Post a Job - HUNAR</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        navy: "#1A1A2E",
+        teal: {
+          DEFAULT: "#0F766E",
+          dark: "#115E59",
+          light: "rgba(15, 118, 110, 0.1)"
+        },
+        orange: "#F59E0B",
+        success: "#16A34A",
+        error: "#DC2626",
+        gray: "#64748B",
+        background: "#F8FAFC",
+        border: "#E2E8F0",
+        surface: "#FFFFFF",
+        primary: "#0F766E",
+        "primary-dark": "#115E59",
+        secondary: "#1A1A2E",
+        
+        // Aliases used in templates
+        appBg: "#F8FAFC",
+        darkText: "#1A1A2E",
+        mutedText: "#64748B",
+        borderLine: "#E2E8F0",
+        "text-main": "#1A1A2E",
+        "surface-muted": "#F8FAFC",
+        "outline-border": "#E2E8F0",
+        
+        // Material Theme 3 Aliases
+        "on-surface": "#1A1A2E",
+        "on-surface-variant": "#64748B",
+        "on-background": "#1A1A2E",
+        "on-primary": "#FFFFFF",
+        "on-secondary": "#FFFFFF",
+        "on-error": "#FFFFFF",
+        "surface-container-lowest": "#FFFFFF",
+        "surface-container-low": "#F8FAFC",
+        "surface-container": "#F8FAFC",
+        "surface-container-high": "#F8FAFC",
+        "surface-container-highest": "#F8FAFC",
+        "surface-variant": "#F8FAFC",
+        "surface-tint": "#0F766E",
+        "surface-dim": "#E2E8F0",
+        "surface-bright": "#FFFFFF",
+        outline: "#64748B",
+        "outline-variant": "#E2E8F0",
+        "primary-container": "rgba(15, 118, 110, 0.1)",
+        "on-primary-container": "#0F766E",
+        "secondary-container": "rgba(26, 26, 46, 0.08)",
+        "on-secondary-container": "#1A1A2E",
+        "secondary-fixed": "rgba(15, 118, 110, 0.1)",
+        "secondary-fixed-dim": "rgba(15, 118, 110, 0.1)",
+        "on-secondary-fixed": "#1A1A2E",
+        "on-secondary-fixed-variant": "#115E59",
+        "primary-fixed": "rgba(15, 118, 110, 0.1)",
+        "primary-fixed-dim": "rgba(15, 118, 110, 0.1)",
+        "on-primary-fixed": "#1A1A2E",
+        "on-primary-fixed-variant": "#115E59",
+        "tertiary": "#F59E0B",
+        "tertiary-container": "rgba(245, 158, 11, 0.1)",
+        "on-tertiary-container": "#F59E0B",
+        "tertiary-fixed": "rgba(245, 158, 11, 0.1)",
+        "on-tertiary-fixed": "#1A1A2E",
+        "error-container": "rgba(220, 38, 38, 0.1)",
+        "on-error-container": "#DC2626",
+        "inverse-primary": "#0F766E",
+        "inverse-surface": "#1A1A2E",
+        "inverse-on-surface": "#F8FAFC"
+      },
+      spacing: {
+        "margin-desktop": "2rem",
+        "margin-tablet": "1.5rem",
+        "margin-mobile": "1rem",
+        "gutter-desktop": "1.5rem",
+        "gutter-mobile": "1rem",
+        "space-3xl": "4rem",
+        "space-2xl": "3rem",
+        "space-xl": "2rem",
+        "space-lg": "1.5rem",
+        "space-md": "1rem",
+        "space-base": "1rem",
+        "space-sm": "0.75rem",
+        "space-xs": "0.5rem",
+        "space-2xs": "0.25rem",
+        "space-xxs": "0.25rem",
+        "space-1": "0.25rem",
+        "space-2": "0.5rem",
+        "space-3": "0.75rem",
+        "space-4": "1rem",
+        "space-5": "1.25rem",
+        "space-6": "1.5rem",
+        "space-8": "2rem",
+        "space-12": "3rem",
+        "space-16": "4rem",
+        "space-20": "5rem",
+        "space-24": "6rem",
+        "space-stack-sm": "0.5rem",
+        "space-stack-md": "1rem",
+        "space-stack-lg": "1.5rem",
+        "section-gap": "2rem",
+        "gutter": "1.5rem"
+      },
+      fontSize: {
+        "stat-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "button-text": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+
+        "display-hero": ["48px", { lineHeight: "56px", letterSpacing: "-0.025em", fontWeight: "700" }],
+        "display-hero-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-kpi": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-kpi-mobile": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-page": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-page-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-section": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "headline-subsection": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }],
+        "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }],
+        "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "body-default": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-compact": ["13px", { lineHeight: "18px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-strong": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "600" }],
+        "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-md": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-md-medium": ["14px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "500" }],
+        "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "400" }],
+        "label-badge": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600" }],
+        "label-regular": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }],
+        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }],
+        "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" }],
+        "label-uppercase": ["10px", { lineHeight: "12px", letterSpacing: "0.05em", fontWeight: "700" }]
+      },
+      fontFamily: {
+        "stat-lg": ["Inter", "sans-serif"],
+        "button-text": ["Inter", "sans-serif"],
+
+        sans: ["Inter", "sans-serif"],
+        "body-default": ["Inter", "sans-serif"],
+        "body-compact": ["Inter", "sans-serif"],
+        "body-strong": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "body-sm": ["Inter", "sans-serif"],
+        "display-kpi": ["Inter", "sans-serif"],
+        "headline-page": ["Inter", "sans-serif"],
+        "headline-section": ["Inter", "sans-serif"],
+        "headline-subsection": ["Inter", "sans-serif"],
+        "headline-md": ["Inter", "sans-serif"],
+        "headline-sm": ["Inter", "sans-serif"],
+        "headline-lg": ["Inter", "sans-serif"],
+        "label-badge": ["Inter", "sans-serif"],
+        "label-regular": ["Inter", "sans-serif"],
+        "label-md": ["Inter", "sans-serif"],
+        "label-sm": ["Inter", "sans-serif"]
+      },
+      borderRadius: {
+        DEFAULT: "0.375rem",
+        sm: "0.25rem",
+        md: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px"
+      }
+    }
+  }
+};
+</script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC; /* theme bg-surface */
+            color: #1A1A2E; /* theme text-on-surface */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #64748B; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748B; 
+        }
+
+        .category-card {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .category-card.selected {
+            border-color: #0F766E; /* secondary */
+            background-color: rgba(143, 243, 244, 0.1); /* secondary-container with opacity */
+            box-shadow: 0 0 0 1px #0F766E;
+        }
+        
+        .category-card.selected .icon-wrapper {
+            background-color: #0F766E; /* secondary */
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="antialiased bg-white" style="background-color: rgb(255, 255, 255); color: rgb(18, 59, 93);">
+<!-- Minimal Wizard Header (Transactional - No Global Nav) -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-stack-md flex items-center justify-between shadow-sm bg-white">
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-stack-sm" style="color: rgb(18, 59, 93);">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: &quot;FILL&quot; 1; color: rgb(15, 139, 141);">handyman</span>
+            HUNAR
+        </div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-2 rounded-full hover:bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1; color: rgb(15, 139, 141);">close</span>
+</button>
+</header>
+<!-- Main Wizard Content -->
+<main class="flex-grow flex flex-col w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-section-gap pb-40"><!-- Refined Step Progression Bar -->
+<div class="w-full max-w-2xl mx-auto mb-10 px-4">
+  <div class="relative flex items-center justify-between">
+    <!-- Connecting Background Track Rail -->
+    <div class="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-[3px] bg-slate-200 z-0"></div>
+    <!-- Active track fill (at Step 1, track is at start) -->
+    <div class="absolute top-1/2 left-0 -translate-y-1/2 h-[3px] z-0 transition-all duration-300" style="width: 0%; background-color: #0F766E;"></div>
+
+    <!-- Step 1: Active / Current -->
+    <div class="relative z-10 flex flex-col items-center group cursor-default">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm text-white shadow-md transition-transform ring-4 ring-[#0F766E]/20" style="background-color: #0F766E;">
+        <span class="">1</span>
+      </div>
+      <span class="absolute -bottom-6 text-xs font-bold whitespace-nowrap text-[#0F766E]">1. Service</span>
+    </div>
+
+    <!-- Step 2: Upcoming -->
+    <div class="relative z-10 flex flex-col items-center group cursor-default">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center font-semibold text-sm bg-white border-2 border-slate-300 text-slate-500 shadow-xs transition-colors">
+        <span class="">2</span>
+      </div>
+      <span class="absolute -bottom-6 text-xs font-medium whitespace-nowrap text-slate-500">2. Details</span>
+    </div>
+
+    <!-- Step 3: Upcoming -->
+    <div class="relative z-10 flex flex-col items-center group cursor-default">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center font-semibold text-sm bg-white border-2 border-slate-300 text-slate-500 shadow-xs transition-colors">
+        <span class="">3</span>
+      </div>
+      <span class="absolute -bottom-6 text-xs font-medium whitespace-nowrap text-slate-500">3. Schedule</span>
+    </div>
+
+    <!-- Step 4: Upcoming -->
+    <div class="relative z-10 flex flex-col items-center group cursor-default">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center font-semibold text-sm bg-white border-2 border-slate-300 text-slate-500 shadow-xs transition-colors">
+        <span class="">4</span>
+      </div>
+      <span class="absolute -bottom-6 text-xs font-medium whitespace-nowrap text-slate-500">4. Review</span>
+    </div>
+  </div>
+</div>
+<!-- Header Section -->
+<div class="w-full max-w-3xl mx-auto text-center mb-8">
+<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-[#1A1A2E] mb-2.5">What service do you need today?</h1>
+<p class="text-base text-slate-500 max-w-lg mx-auto">Choose from our verified local technicians with guaranteed on-time arrival and transparent pricing.</p>
+</div>
+<!-- Search & Quick-Filter Pill Tags -->
+<div class="w-full max-w-3xl mx-auto mb-8">
+<div class="relative flex items-center mb-3.5">
+<span class="material-symbols-outlined absolute left-4 text-slate-400 text-xl pointer-events-none">search</span>
+<input class="w-full pl-12 pr-10 py-3.5 bg-white border border-slate-200 rounded-2xl text-sm text-[#1A1A2E] placeholder-slate-400 focus:outline-none focus:border-[#0F766E] focus:ring-1 focus:ring-[#0F766E] shadow-sm transition-all" placeholder="Search for AC repair, leaking pipe, electrical wiring, carpenter..." type="text">
+<span class="material-symbols-outlined absolute right-4 text-slate-300 text-sm hover:text-slate-500 cursor-pointer">tune</span>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+<span class="text-slate-400 font-medium whitespace-nowrap">Popular searches:</span>
+<button class="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-[#0F766E] hover:text-[#0F766E] transition-colors whitespace-nowrap font-medium shadow-2xs"><span class="text-[#0F766E] mr-1">⚡</span> Emergency AC Leak</button>
+<button class="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-[#0F766E] hover:text-[#0F766E] transition-colors whitespace-nowrap font-medium shadow-2xs"><span class="text-[#0F766E] mr-1">🔧</span> Geyser Installation</button>
+<button class="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-[#0F766E] hover:text-[#0F766E] transition-colors whitespace-nowrap font-medium shadow-2xs"><span class="text-[#0F766E] mr-1">💡</span> Short Circuit Repair</button>
+<button class="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-[#0F766E] hover:text-[#0F766E] transition-colors whitespace-nowrap font-medium shadow-2xs"><span class="text-[#0F766E] mr-1">🪑</span> Door Lock Fix</button>
+</div>
+</div>
+<!-- Modern Interactive Service Cards Grid -->
+<div class="w-full max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-3.5" id="categoryGrid">
+<!-- Card 1: AC Repair (Active / Selected by default) -->
+<div class="category-card group relative bg-white border-2 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md" data-service="ac_repair" style="border-color: #0F766E;">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 text-white transition-all shadow-xs" style="background-color: #0F766E;">
+<span class="material-symbols-outlined text-2xl">ac_unit</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">AC Service &amp; Repair</h3>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase text-white" style="background-color: #0F766E;">Popular</span>
+</div>
+<p class="text-xs text-slate-500 truncate">Cooling fix, deep cleaning, gas refill • 30m</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full text-white shadow-xs" style="background-color: #0F766E;">
+<span class="material-symbols-outlined text-base font-bold">check</span>
+</div>
+</div>
+<!-- Card 2: Plumbing -->
+<div class="category-card group relative bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 hover:border-[#0F766E] hover:shadow-sm" data-service="plumbing">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-[#1A1A2E] group-hover:text-[#0F766E] transition-colors">
+<span class="material-symbols-outlined text-2xl">plumbing</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">Plumbing Works</h3>
+</div>
+<p class="text-xs text-slate-500 truncate">Pipe leakages, taps, drainage, pumps</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 text-slate-300 group-hover:text-[#0F766E] group-hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Card 3: Electrician -->
+<div class="category-card group relative bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 hover:border-[#0F766E] hover:shadow-sm" data-service="electrician">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-[#1A1A2E] group-hover:text-[#0F766E] transition-colors">
+<span class="material-symbols-outlined text-2xl">electrical_services</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">Electrician</h3>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-100 text-slate-600">Verified</span>
+</div>
+<p class="text-xs text-slate-500 truncate">Wiring, fuse box, switches, appliance install</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 text-slate-300 group-hover:text-[#0F766E] group-hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Card 4: Carpenter -->
+<div class="category-card group relative bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 hover:border-[#0F766E] hover:shadow-sm" data-service="carpenter">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-[#1A1A2E] group-hover:text-[#0F766E] transition-colors">
+<span class="material-symbols-outlined text-2xl">handyman</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">Carpentry &amp; Woodwork</h3>
+</div>
+<p class="text-xs text-slate-500 truncate">Furniture assembly, locks, cabinet repairs</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 text-slate-300 group-hover:text-[#0F766E] group-hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Card 5: Appliance Repair -->
+<div class="category-card group relative bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 hover:border-[#0F766E] hover:shadow-sm" data-service="appliance">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-[#1A1A2E] group-hover:text-[#0F766E] transition-colors">
+<span class="material-symbols-outlined text-2xl">home_repair_service</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">Home Appliances</h3>
+</div>
+<p class="text-xs text-slate-500 truncate">Washing machines, fridge, microwave, ovens</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 text-slate-300 group-hover:text-[#0F766E] group-hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Card 6: Painter -->
+<div class="category-card group relative bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 hover:border-[#0F766E] hover:shadow-sm" data-service="painter">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-[#1A1A2E] group-hover:text-[#0F766E] transition-colors">
+<span class="material-symbols-outlined text-2xl">format_paint</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">Painting &amp; Waterproofing</h3>
+</div>
+<p class="text-xs text-slate-500 truncate">Wall touch-ups, full home, water damage fix</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 text-slate-300 group-hover:text-[#0F766E] group-hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Card 7: Cleaning -->
+<div class="category-card group relative bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 hover:border-[#0F766E] hover:shadow-sm" data-service="generator">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-[#1A1A2E] group-hover:text-[#0F766E] transition-colors">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">Generator Repair</h3>
+</div>
+<p class="text-xs text-slate-500 truncate">Troubleshooting, oil change, wiring &amp; tuning</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 text-slate-300 group-hover:text-[#0F766E] group-hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Card 8: Other Request -->
+<div class="category-card group relative bg-white border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-200 hover:border-[#0F766E] hover:shadow-sm" data-service="other">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 text-[#1A1A2E] group-hover:text-[#0F766E] transition-colors">
+<span class="material-symbols-outlined text-2xl">build</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="font-bold text-base text-[#1A1A2E] truncate">Custom / Other Request</h3>
+</div>
+<p class="text-xs text-slate-500 truncate">Describe custom repair or renovation need</p>
+</div>
+</div>
+<div class="shrink-0 ml-3 flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 text-slate-300 group-hover:text-[#0F766E] group-hover:bg-slate-100 transition-all">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Bottom Assurance Micro-Banner -->
+<div class="w-full max-w-3xl mx-auto mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 py-3 border-t border-slate-200/60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#0F766E] text-base">verified_user</span>
+<span class="">Background-checked Experts</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#0F766E] text-base">payments</span>
+<span class="">Upfront Fixed Quotes</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#0F766E] text-base">schedule</span>
+<span class="">Arrival within 30-45 mins</span>
+</div>
+</div></main>
+<!-- Sticky Footer Action Area -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant p-margin-mobile md:p-stack-lg flex justify-between items-center shadow-[0_-4px_20px_rgba(23,32,51,0.05)] z-40 bg-white"><div class="max-w-3xl mx-auto w-full flex justify-between items-center px-4 md:px-0 py-1.5">
+<button class="px-5 py-2.5 rounded-full border border-slate-200 text-slate-600 hover:text-[#1A1A2E] hover:bg-slate-50 transition-colors flex items-center gap-2 text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+    Back
+  </button>
+<div class="flex items-center gap-3">
+<span class="text-xs text-slate-400 hidden sm:inline">Selected: <strong class="text-[#1A1A2E] font-semibold">AC Service &amp; Repair</strong></span>
+<button class="px-7 py-2.5 rounded-full transition-all duration-200 flex items-center gap-2 text-sm font-semibold text-white shadow-md hover:opacity-95 cursor-pointer bg-secondary text-on-primary hover:bg-primary" id="nextButton" style="background-color: rgb(15, 139, 141);">
+      Next: Job Details
+      <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div></footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.category-card');
+            const nextButton = document.getElementById('nextButton');
+            let selectedService = null;
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Remove selected state from all
+                    cards.forEach(c => c.classList.remove('selected'));
+                    
+                    // Add selected state to clicked
+                    card.classList.add('selected');
+                    selectedService = card.dataset.service;
+
+                    // Enable Next Button
+                    nextButton.disabled = false;
+                    nextButton.classList.remove('bg-surface-container-high', 'text-outline', 'cursor-not-allowed');
+                    nextButton.classList.add('bg-secondary', 'text-on-primary', 'hover:bg-primary', 'cursor-pointer', 'shadow-md');
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

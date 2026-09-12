@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>HUNAR Customer Hub - Payments & Escrow</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            navy: "#1A1A2E",
+            teal: {
+              DEFAULT: "#0F766E",
+              dark: "#115E59",
+              light: "rgba(15, 118, 110, 0.1)"
+            },
+            orange: "#F59E0B",
+            success: "#16A34A",
+            error: "#DC2626",
+            gray: "#64748B",
+            background: "#FFFFFF",
+            border: "#E2E8F0",
+            surface: "#FFFFFF",
+            primary: "#0F766E",
+            "primary-dark": "#115E59",
+            secondary: "#1A1A2E",
+            outline: "#64748B",
+            "outline-variant": "#E2E8F0",
+            "on-surface": "#1A1A2E",
+            "on-surface-variant": "#64748B",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-low": "#F8FAFC",
+            "surface-container": "#F1F5F9"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-white text-[#1A1A2E] antialiased">
+  <!-- Desktop Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-[#E2E8F0] z-50 flex flex-col justify-between select-none hidden lg:flex">
+    <div class="flex flex-col flex-1 overflow-hidden">
+      <!-- Logo Header -->
+      <div class="h-16 px-6 flex items-center justify-between border-b border-[#E2E8F0] flex-shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-[#0F766E] flex items-center justify-center text-white font-bold text-lg shadow-sm">H</div>
+          <div class="flex flex-col">
+            <span class="font-bold text-[#1A1A2E] text-base tracking-tight leading-none">HUNAR</span>
+            <span class="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mt-1">Customer Hub</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post Job Button -->
+      <div class="p-4 flex-shrink-0">
+        <a class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#0F766E] hover:bg-[#115E59] text-white font-semibold text-sm shadow-sm transition-all" data-path="post-job" href="#">
+          <span class="material-symbols-outlined text-[20px]">add</span>
+          <span>+ Post a Job</span>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="flex-1 overflow-y-auto px-4 py-2 space-y-1">
+        <nav class="space-y-1">
+          <a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[#64748B] hover:text-[#1A1A2E] hover:bg-[#F8FAFC] font-medium text-sm transition-colors" data-path="dashboard" href="#">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">dashboard</span>
+              <span>Dashboard</span>
+            </div>
+          </a>
+          <a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[#64748B] hover:text-[#1A1A2E] hover:bg-[#F8FAFC] font-medium text-sm transition-colors" data-path="my-jobs" href="#">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">work</span>
+              <span>My Jobs</span>
+            </div>
+          </a>
+          <a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[#64748B] hover:text-[#1A1A2E] hover:bg-[#F8FAFC] font-medium text-sm transition-colors" data-path="offers" href="#">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">local_offer</span>
+              <span>Offers</span>
+            </div>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-[#0F766E]/10 text-[#0F766E] font-semibold border border-[#0F766E]/20">3</span>
+          </a>
+          <a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[#64748B] hover:text-[#1A1A2E] hover:bg-[#F8FAFC] font-medium text-sm transition-colors" data-path="visits" href="#">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+              <span>Visits</span>
+            </div>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-[#0F766E]/10 text-[#0F766E] font-semibold border border-[#0F766E]/20">1</span>
+          </a>
+          <a aria-current="page" class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-[#0F766E]/10 text-[#0F766E] font-semibold text-sm transition-colors" data-path="payments" href="#">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+              <span>Payments</span>
+            </div>
+          </a>
+          <a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[#64748B] hover:text-[#1A1A2E] hover:bg-[#F8FAFC] font-medium text-sm transition-colors" data-path="profile" href="#">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">person</span>
+              <span>Profile</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Bottom User Section -->
+    <div class="p-4 border-t border-[#E2E8F0] bg-white flex-shrink-0">
+      <div class="flex items-center justify-between p-2 rounded-lg hover:bg-[#F8FAFC] transition-colors">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-9 h-9 rounded-full bg-[#1A1A2E] flex items-center justify-center flex-shrink-0 text-white font-semibold text-xs">AK</div>
+          <div class="flex flex-col min-w-0">
+            <span class="font-semibold text-sm text-[#1A1A2E] truncate">Ahmed Khan</span>
+            <span class="text-xs text-[#64748B] truncate">Lahore, PK</span>
+          </div>
+        </div>
+        <button aria-label="Account settings" class="text-[#64748B] hover:text-[#1A1A2E] p-1 rounded transition-colors" type="button">
+          <span class="material-symbols-outlined text-[18px]">more_vert</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="w-full lg:pl-64">
+    <!-- Top Header Bar -->
+    <header class="fixed top-0 right-0 h-16 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] z-40 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 left-0 lg:left-64">
+      <!-- Breadcrumbs -->
+      <div class="flex items-center gap-2 text-sm text-[#64748B]">
+        <span class="text-[#1A1A2E] font-semibold">Customer Hub</span>
+        <span class="material-symbols-outlined text-[16px] text-[#64748B]">chevron_right</span>
+        <span class="text-[#64748B] font-medium">Payments & Escrow</span>
+      </div>
+
+      <!-- Header Right Controls -->
+      <div class="flex items-center gap-4">
+        <div class="relative hidden md:flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-[#64748B] text-[18px]">search</span>
+          <input class="w-72 h-9 pl-9 pr-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#1A1A2E] placeholder:text-[#64748B] focus:outline-none focus:border-[#0F766E] focus:bg-white focus:ring-2 focus:ring-[#0F766E]/20 transition-all" placeholder="Search services, visits, or pros..." type="text">
+        </div>
+        
+        <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-semibold shadow-sm transition-all" data-path="post-job" href="#">
+          <span class="material-symbols-outlined text-[16px]">add</span>
+          <span>Post a Job</span>
+        </a>
+
+        <div class="h-5 w-px bg-[#E2E8F0] hidden sm:block"></div>
+
+        <div class="flex items-center gap-2.5 cursor-pointer">
+          <div class="w-8 h-8 rounded-full bg-[#1A1A2E] flex items-center justify-center text-white font-semibold text-xs">AK</div>
+          <div class="hidden lg:flex flex-col text-left">
+            <span class="text-xs font-semibold text-[#1A1A2E] leading-tight">Ahmed Khan</span>
+            <span class="text-[11px] text-[#64748B] leading-tight">Lahore, PK</span>
+          </div>
+          <span class="material-symbols-outlined text-[#64748B] text-[18px]">expand_more</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="w-full pt-20 pb-16 min-h-screen bg-white px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto flex flex-col w-full">
+        
+        <!-- Page Title & Header Actions -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div class="flex flex-col">
+            <div class="flex items-center gap-3 mb-1">
+              <h1 class="text-2xl font-bold text-[#1A1A2E] tracking-tight">Payments &amp; Escrow Balance</h1>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#0F766E]/10 text-[#0F766E] text-[11px] font-semibold tracking-wide uppercase border border-[#0F766E]/20">
+                <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                Secured Vault
+              </span>
+            </div>
+            <p class="text-sm text-[#64748B]">Manage your secure escrow funds, transaction history, saved payment methods, and downloadable invoices.</p>
+          </div>
+
+          <!-- Top Action Buttons (Fixed spacing & no overlap) -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] hover:bg-[#F8FAFC] text-xs font-semibold shadow-sm transition-all" type="button">
+              <span class="material-symbols-outlined text-[18px] text-[#64748B]">download</span>
+              <span>Download Statement</span>
+            </button>
+            <button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-semibold shadow-sm transition-all" type="button">
+              <span class="material-symbols-outlined text-[18px]">add_circle</span>
+              <span>Add Funds to Escrow</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 KPI Stat Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          
+          <!-- Card 1: Escrow Locked Balance -->
+          <div class="bg-white rounded-xl p-5 shadow-sm border border-[#E2E8F0] flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div class="flex flex-col">
+                <span class="text-xs font-medium text-[#64748B]">Escrow Locked Balance</span>
+                <span class="text-2xl font-bold text-[#1A1A2E] mt-1 tracking-tight">Rs. 3,200</span>
+              </div>
+              <div class="w-10 h-10 rounded-lg bg-[#F59E0B]/10 flex items-center justify-center text-[#F59E0B]">
+                <span class="material-symbols-outlined text-[22px]">lock_clock</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#E2E8F0] flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse flex-shrink-0"></span>
+              <span class="text-xs text-[#64748B] truncate">For AC Repair • Locked safely until completion</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Available Wallet Balance -->
+          <div class="bg-white rounded-xl p-5 shadow-sm border border-[#E2E8F0] flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div class="flex flex-col">
+                <span class="text-xs font-medium text-[#64748B]">Available Wallet Balance</span>
+                <span class="text-2xl font-bold text-[#0F766E] mt-1 tracking-tight">Rs. 4,500</span>
+              </div>
+              <div class="w-10 h-10 rounded-lg bg-[#0F766E]/10 flex items-center justify-center text-[#0F766E]">
+                <span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#E2E8F0] flex items-center gap-2">
+              <span class="material-symbols-outlined text-[#0F766E] text-[14px] flex-shrink-0">check_circle</span>
+              <span class="text-xs text-[#64748B] truncate">Can be used for instant bookings or refunded</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Total Spent to Date -->
+          <div class="bg-white rounded-xl p-5 shadow-sm border border-[#E2E8F0] flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div class="flex flex-col">
+                <span class="text-xs font-medium text-[#64748B]">Total Spent to Date</span>
+                <span class="text-2xl font-bold text-[#1A1A2E] mt-1 tracking-tight">Rs. 42,500</span>
+              </div>
+              <div class="w-10 h-10 rounded-lg bg-[#1A1A2E]/5 flex items-center justify-center text-[#1A1A2E]">
+                <span class="material-symbols-outlined text-[22px]">insights</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#E2E8F0] flex items-center gap-2">
+              <span class="material-symbols-outlined text-[#64748B] text-[14px] flex-shrink-0">verified</span>
+              <span class="text-xs text-[#64748B] truncate">12 completed orders • 100% verified</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Pending Invoices -->
+          <div class="bg-white rounded-xl p-5 shadow-sm border border-[#E2E8F0] flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div class="flex items-start justify-between">
+              <div class="flex flex-col">
+                <span class="text-xs font-medium text-[#64748B]">Pending Invoices</span>
+                <span class="text-2xl font-bold text-[#1A1A2E] mt-1 tracking-tight">Rs. 0</span>
+              </div>
+              <div class="w-10 h-10 rounded-lg bg-[#16A34A]/10 flex items-center justify-center text-[#16A34A]">
+                <span class="material-symbols-outlined text-[22px]">receipt_long</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#E2E8F0] flex items-center gap-2">
+              <span class="material-symbols-outlined text-[#16A34A] text-[14px] flex-shrink-0">done_all</span>
+              <span class="text-xs text-[#64748B] truncate">All settled &amp; zero arrears</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Ledger & Transactions Table Container -->
+        <div class="bg-white rounded-xl shadow-sm border border-[#E2E8F0] mb-6 p-5 sm:p-6 flex flex-col">
+          
+          <!-- Table Controls Toolbar (Fixed: No overlap at any breakpoint) -->
+          <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#E2E8F0]">
+            <!-- Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 xl:pb-0 scrollbar-none">
+              <button class="px-3.5 py-1.5 rounded-lg bg-[#0F766E] text-white font-semibold text-xs shadow-sm whitespace-nowrap flex-shrink-0" type="button">All Transactions (15)</button>
+              <button class="px-3.5 py-1.5 rounded-lg bg-[#F8FAFC] hover:bg-[#E2E8F0]/60 text-[#64748B] hover:text-[#1A1A2E] border border-[#E2E8F0] font-medium text-xs whitespace-nowrap flex-shrink-0 transition-colors" type="button">Escrow Holds (1)</button>
+              <button class="px-3.5 py-1.5 rounded-lg bg-[#F8FAFC] hover:bg-[#E2E8F0]/60 text-[#64748B] hover:text-[#1A1A2E] border border-[#E2E8F0] font-medium text-xs whitespace-nowrap flex-shrink-0 transition-colors" type="button">Completed Payments (12)</button>
+              <button class="px-3.5 py-1.5 rounded-lg bg-[#F8FAFC] hover:bg-[#E2E8F0]/60 text-[#64748B] hover:text-[#1A1A2E] border border-[#E2E8F0] font-medium text-xs whitespace-nowrap flex-shrink-0 transition-colors" type="button">Refunds (2)</button>
+            </div>
+
+            <!-- Search & Filter Actions -->
+            <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap">
+              <div class="relative w-full sm:w-60">
+                <span class="material-symbols-outlined absolute left-3 top-2 text-[#64748B] text-[18px]">search</span>
+                <input class="w-full h-8 pl-9 pr-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#1A1A2E] placeholder:text-[#64748B] focus:outline-none focus:border-[#0F766E] focus:bg-white focus:ring-2 focus:ring-[#0F766E]/20 transition-all" placeholder="Search order ID or pro..." type="text">
+              </div>
+              <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white hover:bg-[#F8FAFC] text-[#1A1A2E] font-medium text-xs transition-colors whitespace-nowrap flex-shrink-0 shadow-sm" type="button">
+                <span class="material-symbols-outlined text-[16px] text-[#0F766E]">calendar_today</span>
+                <span>Last 30 Days</span>
+                <span class="material-symbols-outlined text-[16px] text-[#64748B]">expand_more</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Transactions Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead>
+                <tr class="bg-[#F8FAFC] text-[#64748B] uppercase tracking-wider text-[11px] font-semibold border-b border-[#E2E8F0]">
+                  <th class="py-3 px-4 rounded-l-lg">Date</th>
+                  <th class="py-3 px-4">Job Title &amp; Specialist</th>
+                  <th class="py-3 px-4">Payment Method</th>
+                  <th class="py-3 px-4">Order ID</th>
+                  <th class="py-3 px-4">Status</th>
+                  <th class="py-3 px-4 text-right">Amount</th>
+                  <th class="py-3 px-4 text-right rounded-r-lg">Invoice</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#E2E8F0]">
+                
+                <!-- Row 1: Escrow Held -->
+                <tr class="hover:bg-[#F8FAFC] transition-colors">
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-semibold text-sm text-[#1A1A2E] block">Today</span>
+                    <span class="text-xs text-[#64748B]">Oct 24, 2024</span>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center gap-3 min-w-[220px]">
+                      <div class="w-8 h-8 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center font-bold text-xs text-[#1A1A2E] flex-shrink-0">RA</div>
+                      <div class="flex flex-col min-w-0">
+                        <span class="font-semibold text-sm text-[#1A1A2E] truncate">Kitchen Pipe Joint Leak</span>
+                        <span class="text-xs text-[#64748B] truncate">Rashid Ali • Master Plumber</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <div class="flex items-center gap-2 text-xs text-[#1A1A2E]">
+                      <span class="material-symbols-outlined text-[#64748B] text-[18px]">phone_android</span>
+                      <span>JazzCash Merchant</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-mono text-xs text-[#64748B] font-semibold">#HN-9821</span>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium text-[#F59E0B] bg-[#F59E0B]/10 border border-[#F59E0B]/20">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></span>
+                      Escrow Held
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <span class="font-bold text-sm text-[#1A1A2E]">Rs. 2,000</span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium text-[#0F766E] hover:bg-[#0F766E]/10 transition-colors" type="button">
+                      <span>View Terms</span>
+                      <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Completed -->
+                <tr class="hover:bg-[#F8FAFC] transition-colors">
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-semibold text-sm text-[#1A1A2E] block">Oct 22</span>
+                    <span class="text-xs text-[#64748B]">2024</span>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center gap-3 min-w-[220px]">
+                      <div class="w-8 h-8 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center font-bold text-xs text-[#1A1A2E] flex-shrink-0">RA</div>
+                      <div class="flex flex-col min-w-0">
+                        <span class="font-semibold text-sm text-[#1A1A2E] truncate">Water Heater Flush &amp; Element</span>
+                        <span class="text-xs text-[#64748B] truncate">Rashid Ali • Master Plumber</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <div class="flex items-center gap-2 text-xs text-[#1A1A2E]">
+                      <span class="material-symbols-outlined text-[#64748B] text-[18px]">credit_card</span>
+                      <span>Visa •••• 4291</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-mono text-xs text-[#64748B] font-semibold">#HN-9082</span>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium text-[#16A34A] bg-[#16A34A]/10 border border-[#16A34A]/20">
+                      <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      Completed &amp; Released
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <span class="font-bold text-sm text-[#1A1A2E]">Rs. 2,200</span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium text-[#0F766E] hover:bg-[#0F766E]/10 transition-colors" type="button">
+                      <span class="material-symbols-outlined text-[15px]">download</span>
+                      <span>Invoice PDF</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Completed -->
+                <tr class="hover:bg-[#F8FAFC] transition-colors">
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-semibold text-sm text-[#1A1A2E] block">Oct 18</span>
+                    <span class="text-xs text-[#64748B]">2024</span>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center gap-3 min-w-[220px]">
+                      <div class="w-8 h-8 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center font-bold text-xs text-[#1A1A2E] flex-shrink-0">ME</div>
+                      <div class="flex flex-col min-w-0">
+                        <span class="font-semibold text-sm text-[#1A1A2E] truncate">Full House Electrical Safety Audit</span>
+                        <span class="text-xs text-[#64748B] truncate">Mansoor's Electric Services</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <div class="flex items-center gap-2 text-xs text-[#1A1A2E]">
+                      <span class="material-symbols-outlined text-[#64748B] text-[18px]">account_balance_wallet</span>
+                      <span>Easypaisa</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-mono text-xs text-[#64748B] font-semibold">#HN-8412</span>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium text-[#16A34A] bg-[#16A34A]/10 border border-[#16A34A]/20">
+                      <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      Completed
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <span class="font-bold text-sm text-[#1A1A2E]">Rs. 4,500</span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium text-[#0F766E] hover:bg-[#0F766E]/10 transition-colors" type="button">
+                      <span class="material-symbols-outlined text-[15px]">download</span>
+                      <span>Invoice PDF</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 4: Completed -->
+                <tr class="hover:bg-[#F8FAFC] transition-colors">
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-semibold text-sm text-[#1A1A2E] block">Oct 10</span>
+                    <span class="text-xs text-[#64748B]">2024</span>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center gap-3 min-w-[220px]">
+                      <div class="w-8 h-8 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center font-bold text-xs text-[#1A1A2E] flex-shrink-0">AK</div>
+                      <div class="flex flex-col min-w-0">
+                        <span class="font-semibold text-sm text-[#1A1A2E] truncate">Emergency Circuit Breaker Tripping</span>
+                        <span class="text-xs text-[#64748B] truncate">Ahmad Khan • Licensed Tech</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <div class="flex items-center gap-2 text-xs text-[#1A1A2E]">
+                      <span class="material-symbols-outlined text-[#64748B] text-[18px]">account_balance</span>
+                      <span>Bank Transfer</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-mono text-xs text-[#64748B] font-semibold">#HN-7920</span>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium text-[#16A34A] bg-[#16A34A]/10 border border-[#16A34A]/20">
+                      <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      Completed
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <span class="font-bold text-sm text-[#1A1A2E]">Rs. 1,500</span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium text-[#0F766E] hover:bg-[#0F766E]/10 transition-colors" type="button">
+                      <span class="material-symbols-outlined text-[15px]">download</span>
+                      <span>Invoice PDF</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 5: Refunded -->
+                <tr class="hover:bg-[#F8FAFC] transition-colors">
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-semibold text-sm text-[#1A1A2E] block">Sep 28</span>
+                    <span class="text-xs text-[#64748B]">2024</span>
+                  </td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center gap-3 min-w-[220px]">
+                      <div class="w-8 h-8 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center font-bold text-xs text-[#64748B] flex-shrink-0">
+                        <span class="material-symbols-outlined text-[16px]">undo</span>
+                      </div>
+                      <div class="flex flex-col min-w-0">
+                        <span class="font-semibold text-sm text-[#1A1A2E] truncate">Ceiling Fan Rewinding Deposit</span>
+                        <span class="text-xs text-[#64748B] truncate">Order Canceled by Customer</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <div class="flex items-center gap-2 text-xs text-[#1A1A2E]">
+                      <span class="material-symbols-outlined text-[#64748B] text-[18px]">credit_card</span>
+                      <span>Visa •••• 4291</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="font-mono text-xs text-[#64748B] font-semibold">#HN-7104</span>
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium text-[#64748B] bg-[#F8FAFC] border border-[#E2E8F0]">
+                      <span class="material-symbols-outlined text-[14px]">replay</span>
+                      Refunded
+                    </span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <span class="font-bold text-sm text-[#0F766E]">+Rs. 1,000</span>
+                  </td>
+                  <td class="py-4 px-4 text-right whitespace-nowrap">
+                    <button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium text-[#64748B] hover:text-[#1A1A2E] hover:bg-[#F8FAFC] transition-colors" type="button">
+                      <span class="material-symbols-outlined text-[15px]">receipt</span>
+                      <span>Refund Slip</span>
+                    </button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination Footer -->
+          <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0]">
+            <span class="text-xs text-[#64748B]">Showing 5 of 15 ledger entries</span>
+            <div class="flex items-center gap-1">
+              <button class="p-1.5 rounded-lg text-[#64748B] hover:bg-[#F8FAFC] hover:text-[#1A1A2E] transition-colors border border-[#E2E8F0]" type="button">
+                <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+              </button>
+              <button class="w-8 h-8 rounded-lg bg-[#1A1A2E] text-white font-semibold text-xs flex items-center justify-center shadow-sm" type="button">1</button>
+              <button class="w-8 h-8 rounded-lg text-[#64748B] hover:bg-[#F8FAFC] hover:text-[#1A1A2E] font-semibold text-xs flex items-center justify-center transition-colors" type="button">2</button>
+              <button class="w-8 h-8 rounded-lg text-[#64748B] hover:bg-[#F8FAFC] hover:text-[#1A1A2E] font-semibold text-xs flex items-center justify-center transition-colors" type="button">3</button>
+              <button class="p-1.5 rounded-lg text-[#64748B] hover:bg-[#F8FAFC] hover:text-[#1A1A2E] transition-colors border border-[#E2E8F0]" type="button">
+                <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2 Bottom Panels: Payment Methods & Buyer Protection -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Panel 1: Saved Payment Methods -->
+          <div class="lg:col-span-6 bg-white rounded-xl p-5 sm:p-6 shadow-sm border border-[#E2E8F0] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[22px] text-[#0F766E]">credit_card</span>
+                  <h2 class="text-base font-bold text-[#1A1A2E]">Saved Payment Methods</h2>
+                </div>
+                <span class="text-xs font-semibold text-[#64748B] bg-[#F8FAFC] px-2.5 py-0.5 rounded-full border border-[#E2E8F0]">3 Active</span>
+              </div>
+              <p class="text-xs text-[#64748B] mb-5">Choose your primary source for instant job milestone escrow reserves.</p>
+              
+              <!-- Payment Items Stack -->
+              <div class="space-y-3 mb-5">
+                
+                <!-- Method 1: JazzCash (Default) -->
+                <div class="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between">
+                  <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-lg bg-white border border-[#E2E8F0] flex items-center justify-center text-[#1A1A2E] shadow-sm flex-shrink-0">
+                      <span class="material-symbols-outlined text-[20px]">phone_android</span>
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                      <div class="flex items-center gap-2">
+                        <span class="text-sm font-semibold text-[#1A1A2E] truncate">JazzCash Account</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] uppercase font-bold text-[#16A34A] bg-[#16A34A]/10 border border-[#16A34A]/20">Default</span>
+                      </div>
+                      <span class="font-mono text-xs text-[#64748B]">+92 300 9821***</span>
+                    </div>
+                  </div>
+                  <button class="text-[#64748B] hover:text-[#1A1A2E] p-1 rounded hover:bg-white transition-colors" type="button">
+                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                  </button>
+                </div>
+
+                <!-- Method 2: Easypaisa -->
+                <div class="p-3.5 rounded-xl bg-white border border-[#E2E8F0] hover:bg-[#F8FAFC] transition-colors flex items-center justify-between">
+                  <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#1A1A2E] flex-shrink-0">
+                      <span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                      <span class="text-sm font-semibold text-[#1A1A2E] truncate">Easypaisa Wallet</span>
+                      <span class="font-mono text-xs text-[#64748B]">+92 333 1124***</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2 flex-shrink-0">
+                    <button class="px-2.5 py-1 rounded-md text-xs font-semibold text-[#0F766E] hover:bg-[#0F766E]/10 border border-[#0F766E]/30 transition-colors whitespace-nowrap" type="button">Set Default</button>
+                    <button class="text-[#64748B] hover:text-[#1A1A2E] p-1 rounded hover:bg-[#F8FAFC] transition-colors" type="button">
+                      <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Method 3: Visa Platinum -->
+                <div class="p-3.5 rounded-xl bg-white border border-[#E2E8F0] hover:bg-[#F8FAFC] transition-colors flex items-center justify-between">
+                  <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#1A1A2E] flex-shrink-0">
+                      <span class="material-symbols-outlined text-[20px]">credit_card</span>
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                      <span class="text-sm font-semibold text-[#1A1A2E] truncate">Visa Platinum</span>
+                      <span class="font-mono text-xs text-[#64748B]">Ending in 4291 • Exp 08/27</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2 flex-shrink-0">
+                    <button class="px-2.5 py-1 rounded-md text-xs font-semibold text-[#0F766E] hover:bg-[#0F766E]/10 border border-[#0F766E]/30 transition-colors whitespace-nowrap" type="button">Set Default</button>
+                    <button class="text-[#64748B] hover:text-[#1A1A2E] p-1 rounded hover:bg-[#F8FAFC] transition-colors" type="button">
+                      <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Add Method Action Button -->
+            <button class="w-full py-2.5 px-4 rounded-lg bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-semibold shadow-sm transition-all flex items-center justify-center gap-2" type="button">
+              <span class="material-symbols-outlined text-[18px]">add_card</span>
+              <span>+ Add New Card or Mobile Wallet</span>
+            </button>
+          </div>
+
+          <!-- Panel 2: Buyer Protection & Escrow Guarantee -->
+          <div class="lg:col-span-6 bg-white rounded-xl p-5 sm:p-6 shadow-sm border border-[#E2E8F0] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2.5 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-[#0F766E]/10 flex items-center justify-center text-[#0F766E] flex-shrink-0">
+                  <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+                </div>
+                <h2 class="text-base font-bold text-[#1A1A2E]">Hunar 100% Buyer Protection &amp; Escrow Guarantee</h2>
+              </div>
+              <p class="text-xs text-[#64748B] mb-5">Your capital is preserved under institutional-grade escrow protocols. Workers do not receive your money until you inspect and digitally release the milestone.</p>
+              
+              <!-- Features List -->
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-full bg-[#0F766E]/10 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0F766E]">
+                    <span class="material-symbols-outlined text-[16px]">task_alt</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-xs font-semibold text-[#1A1A2E]">Conditional Milestone Release</span>
+                    <span class="text-xs text-[#64748B]">Funds are held in secure escrow and released to the service provider strictly upon your affirmative sign-off.</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-full bg-[#0F766E]/10 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0F766E]">
+                    <span class="material-symbols-outlined text-[16px]">published_with_changes</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-xs font-semibold text-[#1A1A2E]">Complimentary 5-Day Rework Warranty</span>
+                    <span class="text-xs text-[#64748B]">If an issue recurs within 5 days of delivery, the specialist returns at zero additional charge or escrow is refunded.</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-full bg-[#0F766E]/10 flex items-center justify-center flex-shrink-0 mt-0.5 text-[#0F766E]">
+                    <span class="material-symbols-outlined text-[16px]">support_agent</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-xs font-semibold text-[#1A1A2E]">24/7 Dispute Mediation Tribunal</span>
+                    <span class="text-xs text-[#64748B]">Unsatisfied? Raise a formal mediation dispute within 1 click; our technical inspection officers arbitrate directly.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Resolution Center Bar -->
+            <div class="mt-6 pt-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px] text-[#1A1A2E]">policy</span>
+                <span class="text-xs font-semibold text-[#1A1A2E]">Have a transaction dispute?</span>
+              </div>
+              <button class="hover:underline text-xs font-semibold text-[#0F766E] transition-colors" type="button">Open Resolution Center</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
