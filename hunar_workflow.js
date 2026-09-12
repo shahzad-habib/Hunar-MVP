@@ -365,35 +365,51 @@
     }
 
     // K. Customer Auth (worker_registration)
+    const isMobileAuth = p.includes('mobile_app') || p.includes('clean_mobile');
+    const mobileRegister = ROOT + 'worker_registration/hunar_customer_register_mobile_app_rounded_inputs/code.html';
+    const mobileSignIn = ROOT + 'worker_registration/hunar_customer_sign_in_mobile_app_rounded_inputs/code.html';
+    const mobileOtp = ROOT + 'worker_registration/hunar_customer_register_otp_verification_clean_mobile_app/code.html';
+
     if (p.includes('hunar_customer_sign_in')) {
       document.querySelectorAll('a').forEach(a => {
-        if (matchText(a, 'register') || matchText(a, 'sign up')) a.setAttribute('href', ROUTES.customerRegister);
+        if (matchText(a, 'register') || matchText(a, 'sign up') || matchText(a, 'create account')) {
+          a.setAttribute('href', isMobileAuth ? mobileRegister : ROUTES.customerRegister);
+        }
       });
       document.querySelectorAll('button').forEach(btn => {
         if (matchText(btn, 'sign in') || matchText(btn, 'continue') || matchText(btn, 'login')) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.customerOtp;
+            window.location.href = isMobileAuth ? mobileOtp : ROUTES.customerOtp;
           });
         }
       });
     }
     if (p.includes('hunar_customer_register')) {
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          window.location.href = isMobileAuth ? mobileOtp : ROUTES.customerOtp;
+        });
+      }
       document.querySelectorAll('a').forEach(a => {
-        if (matchText(a, 'sign in') || matchText(a, 'log in')) a.setAttribute('href', ROUTES.customerSignIn);
+        if (matchText(a, 'sign in') || matchText(a, 'log in')) {
+          a.setAttribute('href', isMobileAuth ? mobileSignIn : ROUTES.customerSignIn);
+        }
       });
       document.querySelectorAll('button').forEach(btn => {
-        if (matchText(btn, 'register') || matchText(btn, 'create account')) {
+        if (matchText(btn, 'register') || matchText(btn, 'create account') || matchText(btn, 'google') || matchText(btn, 'apple')) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.customerOtp;
+            window.location.href = isMobileAuth ? mobileOtp : ROUTES.customerOtp;
           });
         }
       });
     }
     if (p.includes('hunar_customer_register_otp')) {
       document.querySelectorAll('button').forEach(btn => {
-        if (matchText(btn, 'verify') || matchText(btn, 'continue')) {
+        if (matchText(btn, 'verify') || matchText(btn, 'continue') || matchText(btn, 'submit')) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
             window.location.href = ROUTES.customerDashboard;
