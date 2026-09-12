@@ -148,6 +148,31 @@ export default function App() {
           )}
 
           <div className="ml-auto flex items-center gap-3">
+            {/* Quick Switch to Customer View & Admin */}
+            <div className="hidden sm:flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-lg p-0.5">
+              <a
+                href="../../marketplace_prototype/hunar_customer_dashboard/code.html"
+                className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded hover:bg-white text-slate-700 hover:text-teal-700 transition-colors"
+                title="Switch to Customer Hub"
+              >
+                <span>Customer Hub</span>
+              </a>
+              <a
+                href="../../admin_operations_suite/analytics/code.html"
+                className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded hover:bg-white text-slate-700 hover:text-teal-700 transition-colors"
+                title="Switch to Admin Operations"
+              >
+                <span>Admin</span>
+              </a>
+              <a
+                href="../../index.html"
+                className="flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded hover:bg-white text-slate-500 hover:text-slate-900 transition-colors"
+                title="Return to Showcase Hub"
+              >
+                <span>Hub</span>
+              </a>
+            </div>
+
             {/* Notification bell */}
             <button className="relative p-2 rounded-md hover:bg-slate-100 transition-colors" style={{ color: T.gray }}>
               {I.bell}

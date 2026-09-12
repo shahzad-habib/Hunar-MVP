@@ -236,8 +236,16 @@ tailwind.config = {
           setTimeout(() => {
             releaseModal.classList.add('hidden');
             window.alert('Success! Escrow funds released to Rashid Ali. Craftsmanship guarantee activated.');
+            window.location.href = '../payments_escrow_wallet_hunar/code.html';
           }, 800);
         });
+
+        const disputeBtn = document.getElementById('disputeBtn');
+        if (disputeBtn) {
+          disputeBtn.addEventListener('click', () => {
+            window.location.href = '../dispute_resolution_help_center_hunar/code.html';
+          });
+        }
       }
 
       // Dispute Notice trigger
@@ -252,4 +260,5 @@ tailwind.config = {
       }
     })();
   </script>
-</div></main></div></body></html>
+</div></main></div>  <script src="../../hunar_workflow.js"></script>
+</body></html>

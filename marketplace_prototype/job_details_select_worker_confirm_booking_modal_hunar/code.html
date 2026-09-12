@@ -616,7 +616,7 @@ tailwind.config = {
 <button class="px-4 py-2.5 rounded-xl border border-[#E2E8F0] text-sm font-semibold text-on-surface hover:bg-surface transition-colors" onclick="document.getElementById('booking-dialog').classList.add('hidden'); document.getElementById('profile-modal').classList.remove('hidden');">
         Back to Profile
       </button>
-<button class="flex-1 py-2.5 rounded-xl bg-[#0F766E] hover:bg-secondary text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-sm transition-all" onclick="alert('Worker booking confirmed! Technician Ali Khan has been notified and dispatched.'); document.getElementById('worker-modals-container').style.display='none';">
+<button class="flex-1 py-2.5 rounded-xl bg-[#0F766E] hover:bg-secondary text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-sm transition-all" onclick="alert('Worker booking confirmed! Technician Ali Khan has been notified.'); window.location.href='../direct_chat_negotiation_hunar_customer_hub/code.html';" style="cursor: pointer;">
 <span class="material-symbols-outlined text-base">done_all</span>
 <span class="">Confirm Booking (Rs. 300)</span>
 </button>
@@ -631,4 +631,5 @@ tailwind.config = {
 
 
 
+  <script src="../../hunar_workflow.js"></script>
 </body></html>

@@ -81,15 +81,27 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2">
+        <a href="./landing_page/code.html" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
+          <span class="material-symbols-outlined text-base text-[#0F766E]">home</span>
+          <span>Landing</span>
+        </a>
+        <a href="./marketplace_prototype/hunar_customer_dashboard/code.html" class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
+          <span class="material-symbols-outlined text-base text-[#0F766E]">person</span>
+          <span>Customer Hub</span>
+        </a>
+        <a href="./worker_portal/dist/index.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#0F766E] text-white text-xs font-semibold hover:bg-[#115E59] transition shadow-sm">
+          <span class="material-symbols-outlined text-base">engineering</span>
+          <span>Worker Portal (React)</span>
+        </a>
+        <a href="./admin_operations_suite/analytics/code.html" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
+          <span class="material-symbols-outlined text-base text-[#0F766E]">admin_panel_settings</span>
+          <span>Admin</span>
+        </a>
         <button onclick="toggleColorDrawer()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#1A1A2E] text-xs font-semibold hover:bg-slate-50 transition shadow-sm">
           <span class="material-symbols-outlined text-base text-[#F59E0B]">palette</span>
-          <span>Color System (colors.md)</span>
+          <span>Colors</span>
         </button>
-        <a href="./colors.md" target="_blank" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-[#64748B] text-xs font-medium hover:text-[#1A1A2E] hover:bg-slate-50 transition">
-          <span class="material-symbols-outlined text-base">description</span>
-          <span>Doc</span>
-        </a>
       </div>
     </div>
   </header>
@@ -1274,5 +1286,6 @@
     // Initialize on load
     window.addEventListener('DOMContentLoaded', init);
   </script>
+  <script src="./hunar_workflow.js"></script>
 </body>
 </html>
