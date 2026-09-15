@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ---- Demo Worker Data ---- */
-const WORKERS_DATA = [
+var WORKERS_DATA = [
   { id: 'WRK-1024', name: 'Muhammad Usman', email: 'usman@hunar.pk', phone: '+92 300 1234567', service: 'AC Technician', location: 'Peshawar, PK', verification: 'verified', availability: 'available', rating: 4.8, completed: 124, joined: 'Aug 24, 2026', experience: '8 years', services: ['AC Repair', 'AC Gas Refill', 'Split AC Installation'], color: '#0F766E', tags: ['Certified', 'Top Rated'] },
   { id: 'WRK-1089', name: 'Ali Raza Khan', email: 'ali.raza@hunar.pk', phone: '+92 331 4567890', service: 'Electrician', location: 'Lahore, PK', verification: 'verified', availability: 'busy', rating: 4.6, completed: 98, joined: 'Jul 12, 2026', experience: '6 years', services: ['Wiring', 'Switchboard', 'Appliance Repair'], color: '#123B5D', tags: ['Verified'] },
   { id: 'WRK-1156', name: 'Bilal Ahmed', email: 'bilal@hunar.pk', phone: '+92 321 9876543', service: 'Plumber', location: 'Islamabad, PK', verification: 'pending', availability: 'available', rating: 0, completed: 0, joined: 'Sep 02, 2026', experience: '3 years', services: ['Pipe Fitting', 'Leak Repair', 'Drain Cleaning'], color: '#2563EB', tags: ['New'] },
@@ -23,13 +23,13 @@ const WORKERS_DATA = [
   { id: 'WRK-1155', name: 'Naeem Ullah', email: 'naeem@hunar.pk', phone: '+92 313 4455667', service: 'Carpenter', location: 'Peshawar, PK', verification: 'verified', availability: 'available', rating: 4.7, completed: 112, joined: 'Apr 22, 2026', experience: '8 years', services: ['Custom Furniture', 'Door/Window', 'Flooring'], color: '#16A34A', tags: ['Top Rated'] },
 ];
 
-const SERVICES_LIST = ['AC Technician', 'Electrician', 'Mechanic', 'Plumber', 'Carpenter', 'Painter'];
-const VERIFICATION_LIST = ['All', 'Verified', 'Pending', 'Rejected'];
-const AVAILABILITY_LIST = ['All', 'Available', 'Busy', 'Offline'];
-const RATING_LIST = ['Any rating', '4.5+', '4.0+', '3.0+'];
+var SERVICES_LIST = ['AC Technician', 'Electrician', 'Mechanic', 'Plumber', 'Carpenter', 'Painter'];
+var VERIFICATION_LIST = ['All', 'Verified', 'Pending', 'Rejected'];
+var AVAILABILITY_LIST = ['All', 'Available', 'Busy', 'Offline'];
+var RATING_LIST = ['Any rating', '4.5+', '4.0+', '3.0+'];
 
 /* ---- State ---- */
-let state = {
+var state = {
   workers: [...WORKERS_DATA],
   filtered: [...WORKERS_DATA],
   search: '',

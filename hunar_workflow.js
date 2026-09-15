@@ -34,6 +34,19 @@
 
   const ROOT = getRootPrefix();
 
+  // Navigate via soft router when available, otherwise fall back to full reload
+  function go(url) {
+    try {
+      if (window.HunarRouter && typeof window.HunarRouter.navigate === 'function') {
+        window.HunarRouter.navigate(url);
+      } else {
+        window.location.href = url;
+      }
+    } catch (e) {
+      window.location.href = url;
+    }
+  }
+
   // 2. Canonical Target URLs
   const ROUTES = {
     landing: ROOT + 'landing_page/code.html',
@@ -147,7 +160,7 @@
             const catSelect = document.querySelector('select');
             const category = catSelect ? catSelect.value : 'HVAC & AC Cooling';
             setJobState({ service: category || 'AC Repair & Maintenance' });
-            window.location.href = ROUTES.postJob1;
+            go(ROUTES.postJob1);
           });
         }
       });
@@ -167,12 +180,12 @@
       document.querySelectorAll('button').forEach(btn => {
         if (matchText(btn, 'next')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.postJob2;
+            go(ROUTES.postJob2);
           });
         }
         if (matchText(btn, 'back')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.customerDashboard;
+            go(ROUTES.customerDashboard);
           });
         }
       });
@@ -185,12 +198,12 @@
           btn.addEventListener('click', () => {
             const textarea = document.querySelector('textarea');
             if (textarea && textarea.value) setJobState({ details: textarea.value });
-            window.location.href = ROUTES.postJob4;
+            go(ROUTES.postJob4);
           });
         }
         if (matchText(btn, 'back')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.postJob1;
+            go(ROUTES.postJob1);
           });
         }
       });
@@ -201,12 +214,12 @@
       document.querySelectorAll('button').forEach(btn => {
         if (matchText(btn, 'review job') || matchText(btn, 'next')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.postJob6;
+            go(ROUTES.postJob6);
           });
         }
         if (matchText(btn, 'back')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.postJob2;
+            go(ROUTES.postJob2);
           });
         }
       });
@@ -218,12 +231,12 @@
         if (matchText(btn, 'post job') || matchText(btn, 'confirm')) {
           btn.addEventListener('click', () => {
             setJobState({ status: 'offers_received' });
-            window.location.href = ROUTES.jobOffers;
+            go(ROUTES.jobOffers);
           });
         }
         if (matchText(btn, 'back')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.postJob4;
+            go(ROUTES.postJob4);
           });
         }
       });
@@ -234,12 +247,12 @@
       document.querySelectorAll('button').forEach(btn => {
         if (matchText(btn, 'view profile')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.workerProfileModal;
+            go(ROUTES.workerProfileModal);
           });
         }
         if (matchText(btn, 'select worker')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.confirmBookingModal;
+            go(ROUTES.confirmBookingModal);
           });
         }
       });
@@ -247,7 +260,7 @@
         if (matchText(el, 'back to my jobs')) {
           el.style.cursor = 'pointer';
           el.addEventListener('click', () => {
-            window.location.href = ROUTES.myJobs;
+            go(ROUTES.myJobs);
           });
         }
       });
@@ -258,12 +271,12 @@
       document.querySelectorAll('button').forEach(btn => {
         if (matchText(btn, 'select worker') || matchText(btn, 'proceed') || matchText(btn, 'book')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.confirmBookingModal;
+            go(ROUTES.confirmBookingModal);
           });
         }
         if (matchText(btn, 'close') || btn.querySelector('.material-symbols-outlined')?.textContent === 'close') {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.jobOffers;
+            go(ROUTES.jobOffers);
           });
         }
       });
@@ -275,19 +288,19 @@
         if (matchText(el, 'track') || matchText(el, 'arrival') || matchText(el, 'schedule visit')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.arrivalTracker;
+            go(ROUTES.arrivalTracker);
           });
         }
         if (matchText(el, 'escrow') || matchText(el, 'release') || matchText(el, 'complete job')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.escrowRelease;
+            go(ROUTES.escrowRelease);
           });
         }
         if (matchText(el, 'dispute') || matchText(el, 'report')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.disputeCenter;
+            go(ROUTES.disputeCenter);
           });
         }
       });
@@ -358,30 +371,30 @@
       document.querySelectorAll('a, button').forEach(el => {
         if (matchText(el, 'post a job') || matchText(el, 'new job')) {
           el.setAttribute('href', ROUTES.postJob1);
-          el.addEventListener('click', () => { window.location.href = ROUTES.postJob1; });
+          el.addEventListener('click', () => { go(ROUTES.postJob1); });
         }
         if (matchText(el, 'view offers') || matchText(el, 'receiving offers')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.jobOffers;
+            go(ROUTES.jobOffers);
           });
         }
         if (matchText(el, 'track arrival') || matchText(el, 'track technician')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.arrivalTracker;
+            go(ROUTES.arrivalTracker);
           });
         }
         if (matchText(el, 'details') && el.closest('.border')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.arrivalTracker;
+            go(ROUTES.arrivalTracker);
           });
         }
         if (matchText(el, 'message') && el.closest('.border')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.directChat;
+            go(ROUTES.directChat);
           });
         }
       });
@@ -393,31 +406,31 @@
         if (matchText(el, 'post a job') || matchText(el, 'new job')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.postJob1;
+            go(ROUTES.postJob1);
           });
         }
         if (matchText(el, 'compare') || matchText(el, 'quotes') || matchText(el, 'offers')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.jobOffers;
+            go(ROUTES.jobOffers);
           });
         }
         if (matchText(el, 'review & release') || matchText(el, 'release escrow')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.escrowRelease;
+            go(ROUTES.escrowRelease);
           });
         }
         if (matchText(el, 'message pros') || matchText(el, 'chat')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.directChat;
+            go(ROUTES.directChat);
           });
         }
         if (matchText(el, 'track arrival') || matchText(el, 'track technician')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.arrivalTracker;
+            go(ROUTES.arrivalTracker);
           });
         }
       });
@@ -439,14 +452,14 @@
       if (form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
-          window.location.href = ROUTES.customerDashboard;
+          go(ROUTES.customerDashboard);
         });
       }
       document.querySelectorAll('button').forEach(btn => {
         if (matchText(btn, 'sign in') || matchText(btn, 'continue') || matchText(btn, 'login')) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.customerDashboard;
+            go(ROUTES.customerDashboard);
           });
         }
       });
@@ -456,7 +469,7 @@
       if (form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
-          window.location.href = isMobileAuth ? mobileOtp : ROUTES.customerOtp;
+          go(isMobileAuth ? mobileOtp : ROUTES.customerOtp);
         });
       }
       document.querySelectorAll('a').forEach(a => {
@@ -468,7 +481,7 @@
         if (matchText(btn, 'register') || matchText(btn, 'create account') || matchText(btn, 'google') || matchText(btn, 'apple')) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = isMobileAuth ? mobileOtp : ROUTES.customerOtp;
+            go(isMobileAuth ? mobileOtp : ROUTES.customerOtp);
           });
         }
       });
@@ -478,7 +491,7 @@
         if (matchText(btn, 'verify') || matchText(btn, 'continue') || matchText(btn, 'submit')) {
           btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.customerDashboard;
+            go(ROUTES.customerDashboard);
           });
         }
       });
@@ -492,7 +505,7 @@
             e.preventDefault();
             btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-sm">sync</span> Activating Profile...`;
             setTimeout(() => {
-              window.location.href = ROUTES.workerDashboardHTML;
+              go(ROUTES.workerDashboardHTML);
             }, 800);
           });
         }
@@ -522,7 +535,7 @@
         if (matchText(row, 'ahmed khan') || matchText(row, 'view request')) {
           row.style.cursor = 'pointer';
           row.addEventListener('click', () => {
-            window.location.href = ROUTES.adminVerificationDetail;
+            go(ROUTES.adminVerificationDetail);
           });
         }
       });
@@ -532,12 +545,12 @@
         if (matchText(btn, 'approve')) {
           btn.addEventListener('click', () => {
             alert('Worker Ahmed Khan has been successfully verified! CNIC and credentials confirmed.');
-            window.location.href = ROUTES.adminVerification;
+            go(ROUTES.adminVerification);
           });
         }
         if (matchText(btn, 'back')) {
           btn.addEventListener('click', () => {
-            window.location.href = ROUTES.adminVerification;
+            go(ROUTES.adminVerification);
           });
         }
       });
@@ -549,7 +562,7 @@
         if (matchText(row, 'ahmed khan') || matchText(row, 'customer')) {
           row.style.cursor = 'pointer';
           row.addEventListener('click', () => {
-            window.location.href = ROUTES.adminUserDetail;
+            go(ROUTES.adminUserDetail);
           });
         }
       });
@@ -557,7 +570,7 @@
         if (matchText(el, 'back to users')) {
           el.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = ROUTES.adminUsers;
+            go(ROUTES.adminUsers);
           });
         }
       });
@@ -735,5 +748,14 @@
   } else {
     wirePageInteractions();
     renderGlobalRibbon();
+  }
+
+  // 7. Load soft-navigation router (hunar_router.js) — auto-inits on load
+  if (!window.HunarRouter) {
+    try {
+      var _hr = document.createElement('script');
+      _hr.src = ROOT + 'hunar_router.js';
+      (document.head || document.documentElement).appendChild(_hr);
+    } catch (e) { /* file:// or blocked: keep default full-page navigation */ }
   }
 })();
